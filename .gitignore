@@ -1,2 +1,16 @@
 
 iOS/Cykelsuperstierne/.DS_Store
+
+iOS/.DS_Store
+
+*.xcuserstate
+
+*.xcsettings
+
+*.xcbkptlist
+
+*.xcscheme
+
+iOS/Cykelsuperstierne/Cykelsuperstierne.xcodeproj/xcuserdata/Rasko.xcuserdatad/xcschemes/xcschememanagement.plist
+
+iOS/Cykelsuperstierne/Cykelsuperstierne/.DS_Store

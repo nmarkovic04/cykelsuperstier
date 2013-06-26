@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BCB7AFD9177B5DB400B48AE9 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCB7AFD8177B5DB400B48AE9 /* FacebookSDK.framework */; };
+		BCB7B012177B84E800B48AE9 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BCB7B011177B84E800B48AE9 /* Default-568h@2x.png */; };
+		BCB7B014177B86AB00B48AE9 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BCB7B013177B86AB00B48AE9 /* Default@2x.png */; };
+		BCB7B018177B873600B48AE9 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = BCB7B017177B873600B48AE9 /* Default.png */; };
+		BCB7B01B177B8BD400B48AE9 /* SMCySplashVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BCB7B01A177B8BD400B48AE9 /* SMCySplashVC.m */; };
+		BCB7B01F177B8FA400B48AE9 /* SMCyLwPickAccountVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BCB7B01E177B8FA400B48AE9 /* SMCyLwPickAccountVC.m */; };
+		BCB7B023177B931E00B48AE9 /* SMCyLwEmailSignupVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BCB7B021177B931E00B48AE9 /* SMCyLwEmailSignupVC.m */; };
+		BCB7B024177B931E00B48AE9 /* SMCyLwEmailSignupVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCB7B022177B931E00B48AE9 /* SMCyLwEmailSignupVC.xib */; };
+		BCB7B027177B976F00B48AE9 /* SMCyLwReminderVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BCB7B026177B976F00B48AE9 /* SMCyLwReminderVC.m */; };
 		C03E0C83177B32F500B3192A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C03E0C82177B32F500B3192A /* UIKit.framework */; };
 		C03E0C85177B32F500B3192A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C03E0C84177B32F500B3192A /* Foundation.framework */; };
 		C03E0C87177B32F500B3192A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C03E0C86177B32F500B3192A /* CoreGraphics.framework */; };
@@ -49,7 +58,6 @@
 		C03E0D0A177B354100B3192A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C03E0D09177B354100B3192A /* CoreLocation.framework */; };
 		C03E0D0C177B355100B3192A /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C03E0D0B177B355100B3192A /* AddressBook.framework */; };
 		C03E0D0E177B355B00B3192A /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C03E0D0D177B355B00B3192A /* Accounts.framework */; };
-		C03E0D10177B357B00B3192A /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C03E0D0F177B357B00B3192A /* FacebookSDK.framework */; };
 		C03E0E1A177B438600B3192A /* 00.iPhone_CSS_intro.png in Resources */ = {isa = PBXBuildFile; fileRef = C03E0D12177B438500B3192A /* 00.iPhone_CSS_intro.png */; };
 		C03E0E1B177B438600B3192A /* 01.iPhone_CSS_Splash.png in Resources */ = {isa = PBXBuildFile; fileRef = C03E0D13177B438500B3192A /* 01.iPhone_CSS_Splash.png */; };
 		C03E0E1C177B438600B3192A /* 02.iPhone_CSS_Reminder.png in Resources */ = {isa = PBXBuildFile; fileRef = C03E0D14177B438500B3192A /* 02.iPhone_CSS_Reminder.png */; };
@@ -313,6 +321,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BCB7AFD8177B5DB400B48AE9 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../../../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
+		BCB7B011177B84E800B48AE9 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		BCB7B013177B86AB00B48AE9 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		BCB7B017177B873600B48AE9 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		BCB7B019177B8BD400B48AE9 /* SMCySplashVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMCySplashVC.h; path = Cykelsuperstierne/SMCyCykelSsUI/SMCySplashVC.h; sourceTree = SOURCE_ROOT; };
+		BCB7B01A177B8BD400B48AE9 /* SMCySplashVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMCySplashVC.m; path = Cykelsuperstierne/SMCyCykelSsUI/SMCySplashVC.m; sourceTree = SOURCE_ROOT; };
+		BCB7B01D177B8FA400B48AE9 /* SMCyLwPickAccountVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMCyLwPickAccountVC.h; sourceTree = "<group>"; };
+		BCB7B01E177B8FA400B48AE9 /* SMCyLwPickAccountVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMCyLwPickAccountVC.m; sourceTree = "<group>"; };
+		BCB7B020177B931E00B48AE9 /* SMCyLwEmailSignupVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMCyLwEmailSignupVC.h; sourceTree = "<group>"; };
+		BCB7B021177B931E00B48AE9 /* SMCyLwEmailSignupVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMCyLwEmailSignupVC.m; sourceTree = "<group>"; };
+		BCB7B022177B931E00B48AE9 /* SMCyLwEmailSignupVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SMCyLwEmailSignupVC.xib; sourceTree = "<group>"; };
+		BCB7B025177B976F00B48AE9 /* SMCyLwReminderVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMCyLwReminderVC.h; sourceTree = "<group>"; };
+		BCB7B026177B976F00B48AE9 /* SMCyLwReminderVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMCyLwReminderVC.m; sourceTree = "<group>"; };
 		C03E0C7F177B32F500B3192A /* Cykelsuperstierne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cykelsuperstierne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C03E0C82177B32F500B3192A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C03E0C84177B32F500B3192A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -385,7 +406,6 @@
 		C03E0D09177B354100B3192A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		C03E0D0B177B355100B3192A /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		C03E0D0D177B355B00B3192A /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
-		C03E0D0F177B357B00B3192A /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		C03E0D12177B438500B3192A /* 00.iPhone_CSS_intro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 00.iPhone_CSS_intro.png; sourceTree = "<group>"; };
 		C03E0D13177B438500B3192A /* 01.iPhone_CSS_Splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 01.iPhone_CSS_Splash.png; sourceTree = "<group>"; };
 		C03E0D14177B438500B3192A /* 02.iPhone_CSS_Reminder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 02.iPhone_CSS_Reminder.png; sourceTree = "<group>"; };
@@ -653,7 +673,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C03E0D10177B357B00B3192A /* FacebookSDK.framework in Frameworks */,
+				BCB7AFD9177B5DB400B48AE9 /* FacebookSDK.framework in Frameworks */,
 				C03E0D0E177B355B00B3192A /* Accounts.framework in Frameworks */,
 				C03E0D0C177B355100B3192A /* AddressBook.framework in Frameworks */,
 				C03E0D0A177B354100B3192A /* CoreLocation.framework in Frameworks */,
@@ -670,9 +690,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BCB7B01C177B8EE400B48AE9 /* LoginWizard */ = {
+			isa = PBXGroup;
+			children = (
+				BCB7B01D177B8FA400B48AE9 /* SMCyLwPickAccountVC.h */,
+				BCB7B01E177B8FA400B48AE9 /* SMCyLwPickAccountVC.m */,
+				BCB7B020177B931E00B48AE9 /* SMCyLwEmailSignupVC.h */,
+				BCB7B021177B931E00B48AE9 /* SMCyLwEmailSignupVC.m */,
+				BCB7B022177B931E00B48AE9 /* SMCyLwEmailSignupVC.xib */,
+				BCB7B025177B976F00B48AE9 /* SMCyLwReminderVC.h */,
+				BCB7B026177B976F00B48AE9 /* SMCyLwReminderVC.m */,
+			);
+			path = LoginWizard;
+			sourceTree = "<group>";
+		};
 		C03E0C76177B32F500B3192A = {
 			isa = PBXGroup;
 			children = (
+				BCB7B017177B873600B48AE9 /* Default.png */,
+				BCB7B013177B86AB00B48AE9 /* Default@2x.png */,
+				BCB7B011177B84E800B48AE9 /* Default-568h@2x.png */,
 				C03E0C88177B32F500B3192A /* Cykelsuperstierne */,
 				C03E0C81177B32F500B3192A /* Frameworks */,
 				C03E0C80177B32F500B3192A /* Products */,
@@ -690,7 +727,7 @@
 		C03E0C81177B32F500B3192A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C03E0D0F177B357B00B3192A /* FacebookSDK.framework */,
+				BCB7AFD8177B5DB400B48AE9 /* FacebookSDK.framework */,
 				C03E0D0D177B355B00B3192A /* Accounts.framework */,
 				C03E0D0B177B355100B3192A /* AddressBook.framework */,
 				C03E0D09177B354100B3192A /* CoreLocation.framework */,
@@ -874,8 +911,12 @@
 		C03E0CE5177B33BF00B3192A /* SMCykelSsUI */ = {
 			isa = PBXGroup;
 			children = (
+				BCB7B01C177B8EE400B48AE9 /* LoginWizard */,
+				BCB7B019177B8BD400B48AE9 /* SMCySplashVC.h */,
+				BCB7B01A177B8BD400B48AE9 /* SMCySplashVC.m */,
 			);
-			path = SMCykelSsUI;
+			name = SMCykelSsUI;
+			path = SMCyCykelSsUI;
 			sourceTree = "<group>";
 		};
 		C03E0D00177B342700B3192A /* Assets */ = {
@@ -1503,6 +1544,10 @@
 				C03E0F1B177B438600B3192A /* splash_illustration@2x.png in Resources */,
 				C03E0F1C177B438600B3192A /* splash_sky.png in Resources */,
 				C03E0F1D177B438600B3192A /* splash_sky@2x.png in Resources */,
+				BCB7B012177B84E800B48AE9 /* Default-568h@2x.png in Resources */,
+				BCB7B014177B86AB00B48AE9 /* Default@2x.png in Resources */,
+				BCB7B018177B873600B48AE9 /* Default.png in Resources */,
+				BCB7B024177B931E00B48AE9 /* SMCyLwEmailSignupVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1539,6 +1584,10 @@
 				C03E0CFB177B33BF00B3192A /* SMrUtil.m in Sources */,
 				C03E0CFC177B33BF00B3192A /* Base64.m in Sources */,
 				C03E0CFD177B33BF00B3192A /* SFHFKeychainUtils.m in Sources */,
+				BCB7B01B177B8BD400B48AE9 /* SMCySplashVC.m in Sources */,
+				BCB7B01F177B8FA400B48AE9 /* SMCyLwPickAccountVC.m in Sources */,
+				BCB7B023177B931E00B48AE9 /* SMCyLwEmailSignupVC.m in Sources */,
+				BCB7B027177B976F00B48AE9 /* SMCyLwReminderVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1636,6 +1685,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../../../Documents/FacebookSDK\"",
+					"\"$(SRCROOT)/../../../../../../Documents/FacebookSDK\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Cykelsuperstierne/Cykelsuperstierne-Prefix.pch";
@@ -1656,6 +1706,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../../../Documents/FacebookSDK\"",
+					"\"$(SRCROOT)/../../../../../../Documents/FacebookSDK\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Cykelsuperstierne/Cykelsuperstierne-Prefix.pch";
