@@ -5,3 +5,26 @@
   Created by Rasko Gojkovic on 6/27/13.
   Copyright (c) 2013 Rasko Gojkovic. All rights reserved.
 */
+
+"monday"                = "Mandag";
+"tuesday"               = "Tirsdag";
+"wednesday"             = "Onsdag";
+"thursday"              = "Torsdag";
+"friday"                = "Fredag";
+"saturday"              = "lørdag";
+"sunday"                = "søndag";
+
+"register_with_email"   = "Opret med email";
+"skip"                  = "Spring over";
+"reminder"              = "Påmindelser";
+"lw_reminder_text"      = "Få hjælp til at komme op på cyklen. Vælg de dage du ønsker at cykle, så hjælper vi dig med at komme igang.";
+"lw_favorites_text"     = "Nu kan du nemt og hurtig navigere til dine foretrukne pendelerruter. Start med at tilføje din hjemme- og arbejdsadresse.";
+"save_reminder"         = "GEM PÅMINDELSER";
+"save_favorites"        = "GEM FAVORITTER";
+"add_favorites"         = "Tilføj favoritter";
+"home_addr_placeholder" = "Hjemmeadresse ...";
+"work_addr_placeholder" = "Arbejdsadresse ...";
+"break_route"           = "Knæk ruten";
+"lw_break_rote_info_top"   = "Vidste du, at du let kan knække din pendlerruteved at lage toget noget af vejen.";
+"lw_break_rote_info_bottom"  = "Når du vælger \"Knæk ruten\" giver vi dig en ny rute til nærmeste S-togsstation og bringer dig frem til din endelige destination.";
+"exit_guide"             = "Afslut guide og ta' en tur";

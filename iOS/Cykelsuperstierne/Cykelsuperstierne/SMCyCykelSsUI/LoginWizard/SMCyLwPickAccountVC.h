@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SMCyBaseVC.h"
 
-@interface SMCyLwPickAccountVC : UIViewController
+@interface SMCyLwPickAccountVC : SMCyBaseVC
 
 @end

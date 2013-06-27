@@ -1,19 +1,18 @@
 //
-//  SMPickAccountVC.m
+//  SMCyEmailSignupVC.m
 //  Cykelsuperstierne
 //
 //  Created by Rasko on 6/26/13.
 //  Copyright (c) 2013 Rasko Gojkovic. All rights reserved.
 //
 
-#import "SMCyLwPickAccountVC.h"
-#import "SMrTranslator.h"
+#import "SMCyEmailSignupVC.h"
 
-@interface SMCyLwPickAccountVC ()
+@interface SMCyEmailSignupVC ()
 
 @end
 
-@implementation SMCyLwPickAccountVC
+@implementation SMCyEmailSignupVC
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,11 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
-}
-
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
+    // Do any additional setup after loading the view from its nib.
 }
 
 - (void)didReceiveMemoryWarning

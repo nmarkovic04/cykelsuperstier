@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SMCyBaseVC.h"
 
-@interface SMCySplashVC : UIViewController
+@interface SMCySplashVC : SMCyBaseVC
 
 @end

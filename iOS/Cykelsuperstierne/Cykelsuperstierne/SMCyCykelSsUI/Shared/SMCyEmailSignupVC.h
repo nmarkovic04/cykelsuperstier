@@ -1,5 +1,5 @@
 //
-//  SMCyReminderVC.h
+//  SMCyEmailSignupVC.h
 //  Cykelsuperstierne
 //
 //  Created by Rasko on 6/26/13.
@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "SMCyBaseVC.h"
 
-@interface SMCyLwReminderVC : SMCyBaseVC
+@interface SMCyEmailSignupVC : SMCyBaseVC
 
 @end
