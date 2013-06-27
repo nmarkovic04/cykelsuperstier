@@ -1,18 +1,18 @@
 //
-//  SMCyEmailSignupVC.m
+//  SMCyBaseVC.m
 //  Cykelsuperstierne
 //
-//  Created by Rasko on 6/26/13.
+//  Created by Rasko Gojkovic on 6/27/13.
 //  Copyright (c) 2013 Rasko Gojkovic. All rights reserved.
 //
 
-#import "SMCyLwEmailSignupVC.h"
+#import "SMCyBaseVC.h"
 
-@interface SMCyLwEmailSignupVC ()
+@interface SMCyBaseVC ()
 
 @end
 
-@implementation SMCyLwEmailSignupVC
+@implementation SMCyBaseVC
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -26,7 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+	// Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning
