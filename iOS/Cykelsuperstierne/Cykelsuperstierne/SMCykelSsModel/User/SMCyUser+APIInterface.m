@@ -7,6 +7,7 @@
 //
 
 #import "SMCyUser+APIInterface.h"
+#import "SMCyUser+DelegateNotifications.h"
 #import "SMCyAPIVocabular.h"
 #import "SMCyAPIWrapper.h"
 #import "SMrUtil.h"
@@ -113,6 +114,7 @@ return ret;
         _user_id = [[data valueForKey:API_KEY_USER_ID] stringValue];
         _authorisation_token = [data valueForKey:API_KEY_AUTHORISATION_TOKEN];
         [self notifyDelegatesDidLogIN];
+        [self notifyDelegatesWillTryFetchUserData];
         [[SMCyAPIWrapper sharedInstance] getUser:self];
     } else {
         
@@ -128,6 +130,7 @@ return ret;
 //            [self.image swap];
 //        }
         [self.image prepareBackImage];
+        [self saveToFileNamed:nil];
     }
 }
 
@@ -141,6 +144,7 @@ return ret;
         _img_url = [data valueForKey:API_KEY_IMAGE_URL];
         [self startNewImageDownload];
         [self notifyDelegatesDidFetchUserData];
+        [self saveToFileNamed:nil];
     } else {
         //should we sent failed notification ?
     }
@@ -164,29 +168,6 @@ return ret;
 
 
 
-#pragma mark - delegate notification utils
 
--(void)notifyDelegatesDidLogIN{
-    [self notifyDelegatesWithSelector:@selector(userDidLogIN:)];
-}
--(void)notifyDelegatesFailedToLogIN{
-    [self notifyDelegatesWithSelector:@selector(userFailedToLogIN:)];
-}
--(void)notifyDelegatesDidLogOUT{
-    [self notifyDelegatesWithSelector:@selector(userDidLogOUT:)];
-}
--(void)notifyDelegatesDidDeleteAccount{
-    [self notifyDelegatesWithSelector:@selector(userDidDeleteAccount:)];
-}
--(void)notifyDelegatesDidFetchUserData{
-    [self notifyDelegatesWithSelector:@selector(userDidFetchUserData:)];
-}
--(void)notifyDelegatesDidFetchUserImage{
-    [self notifyDelegatesWithSelector:@selector(userDidFetchUserImage:)];
-}
-
--(void) notifyDelegatesWithSelector:(SEL)sel{
-    [SMrUtil notifyOnMainThreadDelegatesList:self.delegates WithSelector:sel AndObject:self];
-}
 
 @end

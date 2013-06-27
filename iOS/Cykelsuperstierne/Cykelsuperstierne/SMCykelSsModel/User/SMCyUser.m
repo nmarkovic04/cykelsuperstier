@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Rasko Gojkovic. All rights reserved.
 //
 
-#import "SMCyUser.h"
+#import "SMCyUser+DelegateNotifications.h"
 #import "SMrUtil.h"
 #import "SMCyConsts.h"
 #import "SMCyAPIWrapper.h"
@@ -14,18 +14,22 @@
 #import "SFHFKeychainUtils.h"
 
 
-#define DELEGATE_NOTIFY(_notification_) trt
-
 
 @interface SMCyUser()
+@property (nonatomic, strong, readwrite) NSString * filename;
 @property (nonatomic, strong, readwrite) SMCyAccount * account;
-@property (nonatomic, strong, readwrite) NSMutableArray * delegates;
 @end
 
 @implementation SMCyUser
 
 #pragma mark - getters / setters
 
+-(NSArray*)delegates{
+    if(!_delegates){
+        _delegates = [NSMutableArray new];
+    }
+    return _delegates;
+}
 
 - (NSString *)name{
     return _name;
@@ -71,6 +75,7 @@
     
     if(accountType != AT_UNKNOWN){
         self.account = [SMCyAccount createAccountOfType:accountType WithDelegate:self];
+        [self.account login];
     }
 }
 
@@ -84,11 +89,12 @@
 
 #pragma mark -
 -(void) addDelegate:(id<SMCyUserDelegate>)delegate{
-    
+    if(!_delegates) _delegates = [NSMutableArray new];
+    [_delegates addObject:delegate];
 }
 
 -(void) removeDelegate:(id<SMCyUserDelegate>)delegate{
-    
+    [_delegates removeObject:delegate];
 }
 
 
@@ -104,11 +110,23 @@
 }
 
 -(BOOL)login{
-    return NO;
+    if([self isLoggedin]) return NO;
+    [[SMCyAPIWrapper sharedInstance] loginUser:self];
+    return YES;
 }
 
 -(BOOL)logout{
-    return NO;
+    if(![self isLoggedin]) return NO;
+    [self.account logout];
+    if(self.filename){
+        NSString * path = [SMrUtil getCachePathForFile:self.filename];
+        [SMrUtil deleteFileOnPath:[path stringByAppendingPathExtension:@"acc"]];
+        [SMrUtil deleteFileOnPath:[path stringByAppendingPathExtension:@"usr"]];
+        self.filename = nil;
+    }
+    NSError * err;
+    [SFHFKeychainUtils deleteItemForUsername:self.user_id andServiceName:KEY_AUTHORISATION error:&err];
+    return YES;
 }
 
 -(BOOL)deleteAccount{
@@ -116,11 +134,17 @@
 }
 
 -(BOOL) saveToFileNamed:(NSString*)fileName{
+    if(!fileName){
+        if(self.filename) fileName = self.filename;
+        else return NO;
+    }
     NSString * path = [SMrUtil getCachePathForFile:fileName];
     [self.account saveToCache:[path stringByAppendingPathExtension:@"acc"]];
    
     NSMutableDictionary * data = [NSMutableDictionary new];
     
+    self.filename = fileName;
+    [data setValue:self.filename forKey:@"filename"];
     [data setValue:self.name forKey:@"name"];
     [data setValue:self.email forKey:@"email"];
     [data setValue:self.about forKey:@"about"];
@@ -144,23 +168,27 @@
         return YES;
     }
     
-    if(self.account && [self.account isLoggedin]){
-        [[SMCyAPIWrapper sharedInstance] loginUser:self];
-    } else if(self.account){
-        [self.account login];
-    }
+//    if(self.account && [self.account isLoggedin]){
+//        [[SMCyAPIWrapper sharedInstance] loginUser:self];
+//    } else if(self.account){
+//        [self.account login];
+//    }
     
     return YES;
 }
 
 -(BOOL) loadFromFileNamed:(NSString*)fileName{
+    if(!fileName){
+        if(self.filename) fileName = self.filename;
+        else return NO;
+    }
     NSString * path = [SMrUtil getCachePathForFile:fileName];
     NSDictionary * data;
     
     data = [NSKeyedUnarchiver unarchiveObjectWithFile:[path stringByAppendingPathExtension:@"usr"]];
     if(!data) return NO;
     
-    
+    _filename = [data valueForKey:@"filename"];
     _name = [data valueForKey:@"name"];
     _email = [data valueForKey:@"email"];
     _about = [data valueForKey:@"about"];
@@ -222,19 +250,29 @@
 #pragma mark - account delegate methods
 
 -(void) accountDidLogIN:(SMCyAccount*)account{
+    //try server login
+    if(![self isLoggedin]){
+        [[SMCyAPIWrapper sharedInstance] loginUser:self];
+        [self notifyDelegatesWillTryLogIN];
+    }
 }
 
 -(void) accountFailedToLogIN:(SMCyAccount*)account{
+    [self notifyDelegatesFailedToLogIN];
 }
 
 -(void) accountDidLogOUT:(SMCyAccount*)account{
+    // good to know :)
 }
 
 -(void) accountDidFetchUserData:(SMCyAccount*)account{
+    // also good to know, but valid user data will be fetched from our server
 }
 
 -(void) accountDidFetchUserImage:(SMCyAccount*)account{
+    //at this point this is higly unlikely ... we get image from our server, not from FB account or similar
 }
+
 
 
 @end

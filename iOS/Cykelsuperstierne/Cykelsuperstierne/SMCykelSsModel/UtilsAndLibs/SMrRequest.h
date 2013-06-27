@@ -36,7 +36,7 @@ typedef enum _eSmRequestState{
 @property(nonatomic, readonly)  eSmRequestState state;
 @property(nonatomic, retain, readonly) SMrError * requestError;
 
-
+@property(nonatomic) float timeout;
 -(id) initWithMainUrl:(NSString*)mainUrl;
 -(id) initWithMainUrl:(NSString*)mainUrl andService:(NSString*)service;
 -(id) initWithMainUrl:(NSString*)mainUrl andHttpMethod:(NSString*)httpMethod;

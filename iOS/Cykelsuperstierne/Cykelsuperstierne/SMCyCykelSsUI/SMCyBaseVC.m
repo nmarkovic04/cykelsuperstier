@@ -7,6 +7,7 @@
 //
 
 #import "SMCyBaseVC.h"
+#import "SMrTranslator.h"
 
 @interface SMCyBaseVC ()
 
@@ -26,6 +27,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+#warning replace with settings data
+    SMrTranslator * transl = [[SMrTranslator alloc] initWithBundleStringFile:@"dk"];
+    [self.view translateWith:transl];
 	// Do any additional setup after loading the view.
 }
 

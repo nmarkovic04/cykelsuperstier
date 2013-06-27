@@ -14,12 +14,15 @@
 
 @protocol SMCyUserDelegate <NSObject>
 @optional
--(void) userDidLogIN:(SMCyAccount*)account;
--(void) userFailedToLogIN:(SMCyAccount*)account;
--(void) userDidLogOUT:(SMCyAccount*)account;
--(void) userDidDeleteAccount:(SMCyAccount*)account;
--(void) userDidFetchUserData:(SMCyAccount*)account;
--(void) userDidFetchUserImage:(SMCyAccount*)account;
+-(void) userWillTryLogIN:(SMCyUser*)account;
+-(void) userDidLogIN:(SMCyUser*)account;
+-(void) userFailedToLogIN:(SMCyUser*)account;
+-(void) userDidLogOUT:(SMCyUser*)account;
+-(void) userDidDeleteAccount:(SMCyUser*)account;
+-(void) userWillTryFetchUserData:(SMCyUser*)account;
+-(void) userDidFetchUserData:(SMCyUser*)account;
+-(void) userFailedFetchUserData:(SMCyUser*)account;
+-(void) userDidFetchUserImage:(SMCyUser*)account;
 @end
 
 
@@ -27,6 +30,7 @@
 
 @interface SMCyUser : NSObject<SMCyAccountDelegate>{
 @private
+    NSMutableArray * _delegates;
     NSString * _name;
     NSString * _email;
     NSString * _about;

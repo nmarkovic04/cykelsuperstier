@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC9DE963177CC5B000D837B6 /* SMCyUser+DelegateNotifications.m in Sources */ = {isa = PBXBuildFile; fileRef = BC9DE962177CC5B000D837B6 /* SMCyUser+DelegateNotifications.m */; };
+		BC9DE969177CD16000D837B6 /* SMCyBusyController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC9DE967177CD16000D837B6 /* SMCyBusyController.m */; };
+		BC9DE96A177CD16000D837B6 /* SMCyBusyController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC9DE968177CD16000D837B6 /* SMCyBusyController.xib */; };
 		BCB7AFD9177B5DB400B48AE9 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCB7AFD8177B5DB400B48AE9 /* FacebookSDK.framework */; };
 		BCB7B012177B84E800B48AE9 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BCB7B011177B84E800B48AE9 /* Default-568h@2x.png */; };
 		BCB7B014177B86AB00B48AE9 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BCB7B013177B86AB00B48AE9 /* Default@2x.png */; };
@@ -351,6 +354,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BC9DE961177CC5B000D837B6 /* SMCyUser+DelegateNotifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SMCyUser+DelegateNotifications.h"; sourceTree = "<group>"; };
+		BC9DE962177CC5B000D837B6 /* SMCyUser+DelegateNotifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SMCyUser+DelegateNotifications.m"; sourceTree = "<group>"; };
+		BC9DE966177CD16000D837B6 /* SMCyBusyController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMCyBusyController.h; sourceTree = "<group>"; };
+		BC9DE967177CD16000D837B6 /* SMCyBusyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMCyBusyController.m; sourceTree = "<group>"; };
+		BC9DE968177CD16000D837B6 /* SMCyBusyController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SMCyBusyController.xib; sourceTree = "<group>"; };
 		BCB7AFD8177B5DB400B48AE9 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../../../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		BCB7B011177B84E800B48AE9 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		BCB7B013177B86AB00B48AE9 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
@@ -918,10 +926,12 @@
 		C03E0CC9177B33BF00B3192A /* User */ = {
 			isa = PBXGroup;
 			children = (
-				C03E0CCA177B33BF00B3192A /* SMCyUser+APIInterface.h */,
-				C03E0CCB177B33BF00B3192A /* SMCyUser+APIInterface.m */,
 				C03E0CCC177B33BF00B3192A /* SMCyUser.h */,
 				C03E0CCD177B33BF00B3192A /* SMCyUser.m */,
+				C03E0CCA177B33BF00B3192A /* SMCyUser+APIInterface.h */,
+				C03E0CCB177B33BF00B3192A /* SMCyUser+APIInterface.m */,
+				BC9DE961177CC5B000D837B6 /* SMCyUser+DelegateNotifications.h */,
+				BC9DE962177CC5B000D837B6 /* SMCyUser+DelegateNotifications.m */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -1312,6 +1322,9 @@
 				C0435880177C3E91008FA3A5 /* SMCyEmailSignupVC.h */,
 				C0435881177C3E91008FA3A5 /* SMCyEmailSignupVC.m */,
 				C0435882177C3E91008FA3A5 /* SMCyEmailSignupVC.xib */,
+				BC9DE966177CD16000D837B6 /* SMCyBusyController.h */,
+				BC9DE967177CD16000D837B6 /* SMCyBusyController.m */,
+				BC9DE968177CD16000D837B6 /* SMCyBusyController.xib */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -1725,6 +1738,7 @@
 				C0435888177C4F60008FA3A5 /* dk.strings in Resources */,
 				C0AE80FB177C90D2004C2451 /* README.markdown in Resources */,
 				C0AE8103177C90D2004C2451 /* smroute_settings_example.plist in Resources */,
+				BC9DE96A177CD16000D837B6 /* SMCyBusyController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1783,6 +1797,8 @@
 				C0AE8104177C90D2004C2451 /* SMRouteSettings.m in Sources */,
 				C0AE8105177C90D2004C2451 /* SMRouteUtils.m in Sources */,
 				C0AE8106177C90D2004C2451 /* SMTurnInstruction.m in Sources */,
+				BC9DE963177CC5B000D837B6 /* SMCyUser+DelegateNotifications.m in Sources */,
+				BC9DE969177CD16000D837B6 /* SMCyBusyController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,9 +8,13 @@
 
 #import "SMCyLwPickAccountVC.h"
 #import "SMrTranslator.h"
+#import "SMCyBusyController.h"
 
 @interface SMCyLwPickAccountVC ()
 
+- (IBAction)onFbLogin:(id)sender;
+- (IBAction)onRegisterViaEmail:(UIButton *)sender;
+- (IBAction)onSkip:(UIButton *)sender;
 @end
 
 @implementation SMCyLwPickAccountVC
@@ -27,6 +31,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [[SMCyUser activeUser] addDelegate:self];
 	// Do any additional setup after loading the view.
 }
 
@@ -38,6 +43,78 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)onFbLogin:(id)sender {
+     
+    if([SMCyUser activeUser].accountType != AT_FACEBOOK){
+        //this will create new fb account and try to log in
+        [SMCyUser activeUser].accountType = AT_FACEBOOK;
+    } else if([[SMCyUser activeUser] isLoggedin]){
+        [self userDidLogIN:[SMCyUser activeUser]];
+    } else {
+        [[SMCyUser activeUser] login];
+    }
+}
+
+- (IBAction)onRegisterViaEmail:(UIButton *)sender {
+}
+
+- (IBAction)onSkip:(UIButton *)sender {
+}
+
+#pragma mark - user delegate methods
+
+-(void) userWillTryLogIN:(SMCyUser*)account{
+    [SMCyBusyController showOnViewController:self];
+}
+
+-(void) userDidLogIN:(SMCyUser*)account{
+//    if([SMCyBusyController isVisible]){
+//        [SMCyBusyController close];
+//    }
+}
+
+-(void) userFailedToLogIN:(SMCyUser*)account{
+    if([SMCyBusyController isVisible]){
+        [SMCyBusyController close];
+    }
+
+}
+
+-(void) userDidLogOUT:(SMCyUser*)account{
+    if([SMCyBusyController isVisible]){
+        [SMCyBusyController close];
+    }
+}
+
+
+-(void) userDidDeleteAccount:(SMCyUser*)account{
+    
+}
+
+-(void) userWillTryFetchUserData:(SMCyUser*)account{
+    if(![SMCyBusyController isVisible]){
+        [SMCyBusyController showOnViewController:self];
+    }
+}
+
+-(void) userDidFetchUserData:(SMCyUser*)account{
+    if([SMCyBusyController isVisible]){
+        [SMCyBusyController close];
+    }
+    [self pushNextView];
+}
+
+-(void) userFailedFetchUserData:(SMCyUser*)account{
+    if([SMCyBusyController isVisible]){
+        [SMCyBusyController close];
+    }
+}
+
+-(void)pushNextView{
+    [[SMCyUser activeUser] removeDelegate:self];
+    [self performSegueWithIdentifier:@"loginToReminder" sender:self];
 }
 
 @end

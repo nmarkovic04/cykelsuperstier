@@ -20,11 +20,6 @@
 -(void) onDeleteUserWithSuccess:(BOOL) success Info:(NSString*)info Errors:(NSString*)errors AndData:(NSDictionary*) data;
 -(void) onChangeUserDataWithSuccess:(BOOL) success Info:(NSString*)info Errors:(NSString*)errors AndData:(NSDictionary*) data;
 
--(void)notifyDelegatesDidLogIN;
--(void)notifyDelegatesFailedToLogIN;
--(void)notifyDelegatesDidLogOUT;
--(void)notifyDelegatesDidDeleteAccount;
--(void)notifyDelegatesDidFetchUserData;
--(void)notifyDelegatesDidFetchUserImage;
+
 
 @end

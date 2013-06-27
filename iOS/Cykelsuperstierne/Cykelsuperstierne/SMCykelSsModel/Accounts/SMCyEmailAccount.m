@@ -44,10 +44,10 @@
 }
 
 - (void)logout{
-    BOOL prevLogged = [self isLoggedin];
+    NSError * err;
+    [SFHFKeychainUtils deleteItemForUsername:self.email andServiceName:KEY_AUTHORISATION error:&err];
     [self cleanData];
-    if(prevLogged) [self notifyDelegateLoggedOUT];
-    else         [self notifyDelegateFailedToLogOUT];
+    [self notifyDelegateLoggedOUT];
 }
 //
 //-(BOOL) fetchUserData{
@@ -59,6 +59,7 @@
 //}
 
 -(void) cleanData{
+
     self.alias = nil;
     self.firstName = nil;
     self.lastName = nil;

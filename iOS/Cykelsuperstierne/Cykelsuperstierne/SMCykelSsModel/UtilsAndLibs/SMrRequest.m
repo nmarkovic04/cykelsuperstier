@@ -51,10 +51,6 @@ static const NSString * CONNECTION_ERROR = @"connErr";
     //    self = [super initWithTarget:self selector:@selector(_startConnection) object:nil];
     self = [super init];
     if(self){
-        __weak SMrRequest * localSelfCopy = self;
-        [self addExecutionBlock:^(){
-            [localSelfCopy _startConnection];
-        }];
         [self baseInit];
         self.mainUrl = mainUrl;
     }
@@ -90,6 +86,12 @@ static const NSString * CONNECTION_ERROR = @"connErr";
 
 -(void)baseInit{
     
+    __weak SMrRequest * localSelfCopy = self;
+    [self addExecutionBlock:^(){
+        [localSelfCopy _startConnection];
+    }];
+    
+    self.timeout = 60.0;
     self.mainUrl = nil;
     self.httpMethod = @"GET";
     self.headerFields = nil;
@@ -156,8 +158,9 @@ static const NSString * CONNECTION_ERROR = @"connErr";
     
     self.state = RS_WAITINGFORRESPONSE;
     NSMutableURLRequest * request = [self generateURLRequest];
-    
-//    self.receivedData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&err];
+
+    NSLog(@"Sent: %@", request.description);
+
     __block SMrRequest * localSelfCopy = self;
     [NSURLConnection sendAsynchronousRequest:request queue:[SMrRequest sharedQueue] completionHandler:^(NSURLResponse* resp, NSData* data, NSError* err){
         
@@ -246,6 +249,7 @@ static const NSString * CONNECTION_ERROR = @"connErr";
     if(!url) return nil; //error is already filled
     
     NSMutableURLRequest * ret = [[NSMutableURLRequest alloc] initWithURL:url];
+    ret.timeoutInterval = self.timeout;
     
     ret.HTTPMethod = self.httpMethod;
     

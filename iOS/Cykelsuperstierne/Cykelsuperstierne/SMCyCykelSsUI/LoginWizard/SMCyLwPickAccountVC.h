@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "SMCyBaseVC.h"
+#import "SMCyUser.h"
 
-@interface SMCyLwPickAccountVC : SMCyBaseVC
+@interface SMCyLwPickAccountVC : SMCyBaseVC<SMCyUserDelegate>
 
 @end
