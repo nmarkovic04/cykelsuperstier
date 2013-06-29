@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC25EE7A177F81B100010A1A /* SMrSlideHandleView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC25EE79177F81B100010A1A /* SMrSlideHandleView.m */; };
 		BC9DE963177CC5B000D837B6 /* SMCyUser+DelegateNotifications.m in Sources */ = {isa = PBXBuildFile; fileRef = BC9DE962177CC5B000D837B6 /* SMCyUser+DelegateNotifications.m */; };
 		BC9DE969177CD16000D837B6 /* SMCyBusyController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC9DE967177CD16000D837B6 /* SMCyBusyController.m */; };
 		BC9DE96A177CD16000D837B6 /* SMCyBusyController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC9DE968177CD16000D837B6 /* SMCyBusyController.xib */; };
@@ -354,6 +355,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BC25EE78177F81B100010A1A /* SMrSlideHandleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMrSlideHandleView.h; sourceTree = "<group>"; };
+		BC25EE79177F81B100010A1A /* SMrSlideHandleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMrSlideHandleView.m; sourceTree = "<group>"; };
 		BC9DE961177CC5B000D837B6 /* SMCyUser+DelegateNotifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SMCyUser+DelegateNotifications.h"; sourceTree = "<group>"; };
 		BC9DE962177CC5B000D837B6 /* SMCyUser+DelegateNotifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SMCyUser+DelegateNotifications.m"; sourceTree = "<group>"; };
 		BC9DE966177CD16000D837B6 /* SMCyBusyController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMCyBusyController.h; sourceTree = "<group>"; };
@@ -770,6 +773,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BC25EE77177F81B100010A1A /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				BC25EE78177F81B100010A1A /* SMrSlideHandleView.h */,
+				BC25EE79177F81B100010A1A /* SMrSlideHandleView.m */,
+			);
+			path = Controls;
+			sourceTree = "<group>";
+		};
 		BCB7B01C177B8EE400B48AE9 /* LoginWizard */ = {
 			isa = PBXGroup;
 			children = (
@@ -998,6 +1010,7 @@
 		C03E0CE5177B33BF00B3192A /* SMCykelSsUI */ = {
 			isa = PBXGroup;
 			children = (
+				BC25EE77177F81B100010A1A /* Controls */,
 				BCB7B01C177B8EE400B48AE9 /* LoginWizard */,
 				C043587F177C3E2B008FA3A5 /* Shared */,
 				BCB7B019177B8BD400B48AE9 /* SMCySplashVC.h */,
@@ -1799,6 +1812,7 @@
 				C0AE8106177C90D2004C2451 /* SMTurnInstruction.m in Sources */,
 				BC9DE963177CC5B000D837B6 /* SMCyUser+DelegateNotifications.m in Sources */,
 				BC9DE969177CD16000D837B6 /* SMCyBusyController.m in Sources */,
+				BC25EE7A177F81B100010A1A /* SMrSlideHandleView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
