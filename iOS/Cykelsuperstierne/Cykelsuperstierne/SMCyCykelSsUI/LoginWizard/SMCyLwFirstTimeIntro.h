@@ -9,5 +9,7 @@
 #import "SMCyBaseVC.h"
 
 @interface SMCyLwFirstTimeIntro : SMCyBaseVC
+@property (weak, nonatomic) IBOutlet UIButton *exitButton;
 
+- (IBAction)onExit:(UIButton *)sender;
 @end

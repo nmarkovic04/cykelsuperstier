@@ -1,14 +1,13 @@
 //
-//  SMCyBaseVC.h
+//  SMCyEmbedSBSegue.h
 //  Cykelsuperstierne
 //
-//  Created by Rasko Gojkovic on 6/27/13.
+//  Created by Rasko on 6/30/13.
 //  Copyright (c) 2013 Rasko Gojkovic. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface SMCyBaseVC : UIViewController
-
+@interface SMCyEmbedSBSegue : UIStoryboardSegue
 
 @end

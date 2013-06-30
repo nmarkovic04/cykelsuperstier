@@ -7,6 +7,7 @@
 //
 
 #import "SMCyLwFavorites.h"
+#import "SMCySettings.h"
 
 @interface SMCyLwFavorites ()
 
@@ -35,4 +36,22 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)onSaveFavorites:(UIButton *)sender {
+    //TODO: save favorites
+    
+    [self goToNextView];
+    
+}
+
+- (IBAction)onSkip:(UIButton *)sender {
+    [self goToNextView];
+}
+
+-(void) goToNextView{
+    if([[SMCySettings sharedInstance] shouldShowFirstTimeIntro]){
+        [self performSegueWithIdentifier:@"favoritesToFirstTimeIntro" sender:self];        
+    } else {
+        [self performSegueWithIdentifier:@"favoritesToMap" sender:self];
+    }
+}
 @end

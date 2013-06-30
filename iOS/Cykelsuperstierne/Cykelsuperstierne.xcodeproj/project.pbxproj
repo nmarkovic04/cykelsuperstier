@@ -7,12 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC1AB6C21780AD510067CC13 /* SMCyMainMapVC+Animations.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1AB6C11780AD510067CC13 /* SMCyMainMapVC+Animations.m */; };
+		BC1AB6C61780B4CE0067CC13 /* SMCyMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC1AB6C51780B4CE0067CC13 /* SMCyMenuController.m */; };
+		BC1AB6C81780B5000067CC13 /* SMCyMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC1AB6C71780B5000067CC13 /* SMCyMenu.storyboard */; };
 		BC25EE7A177F81B100010A1A /* SMrSlideHandleView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC25EE79177F81B100010A1A /* SMrSlideHandleView.m */; };
+		BC8C8E7E17805B3D00420705 /* SMCyMainMapVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BC8C8E7D17805B3D00420705 /* SMCyMainMapVC.m */; };
 		BC99CD1617801B6000AFED36 /* SMCyFavoritePlace.m in Sources */ = {isa = PBXBuildFile; fileRef = BC99CD1517801B6000AFED36 /* SMCyFavoritePlace.m */; };
 		BC99CD1917801B7C00AFED36 /* SMCyFavorites.m in Sources */ = {isa = PBXBuildFile; fileRef = BC99CD1817801B7C00AFED36 /* SMCyFavorites.m */; };
 		BC99CD1D17801F3200AFED36 /* SMCyAddressFinder.m in Sources */ = {isa = PBXBuildFile; fileRef = BC99CD1B17801F3200AFED36 /* SMCyAddressFinder.m */; };
 		BC99CD1E17801F3200AFED36 /* SMCyAddressFinder.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC99CD1C17801F3200AFED36 /* SMCyAddressFinder.xib */; };
 		BC99CD22178021B800AFED36 /* SMCyBaseSharedVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BC99CD20178021B800AFED36 /* SMCyBaseSharedVC.m */; };
+		BC99CD2C1780558700AFED36 /* SMCyEmbedSBSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = BC99CD2B1780558700AFED36 /* SMCyEmbedSBSegue.m */; };
 		BC9DE963177CC5B000D837B6 /* SMCyUser+DelegateNotifications.m in Sources */ = {isa = PBXBuildFile; fileRef = BC9DE962177CC5B000D837B6 /* SMCyUser+DelegateNotifications.m */; };
 		BC9DE969177CD16000D837B6 /* SMCyBusyController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC9DE967177CD16000D837B6 /* SMCyBusyController.m */; };
 		BC9DE96A177CD16000D837B6 /* SMCyBusyController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC9DE968177CD16000D837B6 /* SMCyBusyController.xib */; };
@@ -360,8 +365,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BC1AB6C01780AD510067CC13 /* SMCyMainMapVC+Animations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SMCyMainMapVC+Animations.h"; sourceTree = "<group>"; };
+		BC1AB6C11780AD510067CC13 /* SMCyMainMapVC+Animations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SMCyMainMapVC+Animations.m"; sourceTree = "<group>"; };
+		BC1AB6C41780B4CE0067CC13 /* SMCyMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMCyMenuController.h; sourceTree = "<group>"; };
+		BC1AB6C51780B4CE0067CC13 /* SMCyMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMCyMenuController.m; sourceTree = "<group>"; };
+		BC1AB6C71780B5000067CC13 /* SMCyMenu.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SMCyMenu.storyboard; sourceTree = "<group>"; };
 		BC25EE78177F81B100010A1A /* SMrSlideHandleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMrSlideHandleView.h; sourceTree = "<group>"; };
 		BC25EE79177F81B100010A1A /* SMrSlideHandleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMrSlideHandleView.m; sourceTree = "<group>"; };
+		BC8C8E7C17805B3D00420705 /* SMCyMainMapVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMCyMainMapVC.h; sourceTree = "<group>"; };
+		BC8C8E7D17805B3D00420705 /* SMCyMainMapVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMCyMainMapVC.m; sourceTree = "<group>"; };
 		BC99CD1417801B6000AFED36 /* SMCyFavoritePlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMCyFavoritePlace.h; sourceTree = "<group>"; };
 		BC99CD1517801B6000AFED36 /* SMCyFavoritePlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMCyFavoritePlace.m; sourceTree = "<group>"; };
 		BC99CD1717801B7C00AFED36 /* SMCyFavorites.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMCyFavorites.h; sourceTree = "<group>"; };
@@ -371,6 +383,8 @@
 		BC99CD1C17801F3200AFED36 /* SMCyAddressFinder.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SMCyAddressFinder.xib; sourceTree = "<group>"; };
 		BC99CD1F178021B800AFED36 /* SMCyBaseSharedVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMCyBaseSharedVC.h; sourceTree = "<group>"; };
 		BC99CD20178021B800AFED36 /* SMCyBaseSharedVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMCyBaseSharedVC.m; sourceTree = "<group>"; };
+		BC99CD2A1780558700AFED36 /* SMCyEmbedSBSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMCyEmbedSBSegue.h; sourceTree = "<group>"; };
+		BC99CD2B1780558700AFED36 /* SMCyEmbedSBSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMCyEmbedSBSegue.m; sourceTree = "<group>"; };
 		BC9DE961177CC5B000D837B6 /* SMCyUser+DelegateNotifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SMCyUser+DelegateNotifications.h"; sourceTree = "<group>"; };
 		BC9DE962177CC5B000D837B6 /* SMCyUser+DelegateNotifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SMCyUser+DelegateNotifications.m"; sourceTree = "<group>"; };
 		BC9DE966177CD16000D837B6 /* SMCyBusyController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMCyBusyController.h; sourceTree = "<group>"; };
@@ -787,6 +801,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BC1AB6C31780B4A50067CC13 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				BC1AB6C71780B5000067CC13 /* SMCyMenu.storyboard */,
+				BC1AB6C41780B4CE0067CC13 /* SMCyMenuController.h */,
+				BC1AB6C51780B4CE0067CC13 /* SMCyMenuController.m */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
 		BC25EE77177F81B100010A1A /* Controls */ = {
 			isa = PBXGroup;
 			children = (
@@ -794,6 +818,17 @@
 				BC25EE79177F81B100010A1A /* SMrSlideHandleView.m */,
 			);
 			path = Controls;
+			sourceTree = "<group>";
+		};
+		BC8C8E7A17805AF200420705 /* MapControllers */ = {
+			isa = PBXGroup;
+			children = (
+				BC8C8E7C17805B3D00420705 /* SMCyMainMapVC.h */,
+				BC8C8E7D17805B3D00420705 /* SMCyMainMapVC.m */,
+				BC1AB6C01780AD510067CC13 /* SMCyMainMapVC+Animations.h */,
+				BC1AB6C11780AD510067CC13 /* SMCyMainMapVC+Animations.m */,
+			);
+			path = MapControllers;
 			sourceTree = "<group>";
 		};
 		BC99CD1217801B0800AFED36 /* Favorites */ = {
@@ -805,6 +840,22 @@
 				BC99CD1817801B7C00AFED36 /* SMCyFavorites.m */,
 			);
 			path = Favorites;
+			sourceTree = "<group>";
+		};
+		BC99CD261780535900AFED36 /* Soryboards */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Soryboards;
+			sourceTree = "<group>";
+		};
+		BC99CD291780549700AFED36 /* CustomSegues */ = {
+			isa = PBXGroup;
+			children = (
+				BC99CD2A1780558700AFED36 /* SMCyEmbedSBSegue.h */,
+				BC99CD2B1780558700AFED36 /* SMCyEmbedSBSegue.m */,
+			);
+			path = CustomSegues;
 			sourceTree = "<group>";
 		};
 		BCB7B01C177B8EE400B48AE9 /* LoginWizard */ = {
@@ -1036,6 +1087,10 @@
 		C03E0CE5177B33BF00B3192A /* SMCykelSsUI */ = {
 			isa = PBXGroup;
 			children = (
+				BC1AB6C31780B4A50067CC13 /* Menu */,
+				BC8C8E7A17805AF200420705 /* MapControllers */,
+				BC99CD291780549700AFED36 /* CustomSegues */,
+				BC99CD261780535900AFED36 /* Soryboards */,
 				BC25EE77177F81B100010A1A /* Controls */,
 				BCB7B01C177B8EE400B48AE9 /* LoginWizard */,
 				C043587F177C3E2B008FA3A5 /* Shared */,
@@ -1784,6 +1839,7 @@
 				C0AE8103177C90D2004C2451 /* smroute_settings_example.plist in Resources */,
 				BC9DE96A177CD16000D837B6 /* SMCyBusyController.xib in Resources */,
 				BC99CD1E17801F3200AFED36 /* SMCyAddressFinder.xib in Resources */,
+				BC1AB6C81780B5000067CC13 /* SMCyMenu.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1849,6 +1905,10 @@
 				BC99CD1917801B7C00AFED36 /* SMCyFavorites.m in Sources */,
 				BC99CD1D17801F3200AFED36 /* SMCyAddressFinder.m in Sources */,
 				BC99CD22178021B800AFED36 /* SMCyBaseSharedVC.m in Sources */,
+				BC99CD2C1780558700AFED36 /* SMCyEmbedSBSegue.m in Sources */,
+				BC8C8E7E17805B3D00420705 /* SMCyMainMapVC.m in Sources */,
+				BC1AB6C21780AD510067CC13 /* SMCyMainMapVC+Animations.m in Sources */,
+				BC1AB6C61780B4CE0067CC13 /* SMCyMenuController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

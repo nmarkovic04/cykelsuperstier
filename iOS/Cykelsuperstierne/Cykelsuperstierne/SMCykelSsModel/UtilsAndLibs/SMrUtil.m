@@ -8,6 +8,7 @@
 
 #import "SMrUtil.h"
 #import "SMrError.h"
+#import <objc/runtime.h>
 
 @implementation SMrUtil
 
@@ -101,10 +102,16 @@
 }
 
 
+#pragma mark - instance manipulation
 
-
-
++(id)createInstanceFromClassName:(NSString*)className{
+    Class cls = NSClassFromString(className);
+    if(!cls) return nil;
+    id obj = [[cls alloc] init];
+    return obj;
+}
 
 #pragma mark - device
+
 
 @end

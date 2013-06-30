@@ -30,6 +30,8 @@
 
 +(SMrError*)deleteFileOnPath:(NSString*)path;
 
++(id)createInstanceFromClassName:(NSString*)className;
+
 @end
 
 //macros for POD to NSNumber conversion and vice versa
