@@ -35,4 +35,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)onBackClose:(UIButton *)sender {
+    
+    [self backCloseAnimated:YES withCompletion:nil];
+}
+
+- (IBAction)onSignup:(UIButton *)sender {
+}
 @end

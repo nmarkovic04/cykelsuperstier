@@ -1,20 +1,18 @@
 //
-//  SMCyBaseVC.m
+//  SMCyAddressFinder.m
 //  Cykelsuperstierne
 //
-//  Created by Rasko Gojkovic on 6/27/13.
+//  Created by Rasko on 6/30/13.
 //  Copyright (c) 2013 Rasko Gojkovic. All rights reserved.
 //
 
-#import "SMCyBaseVC.h"
-#import "SMrTranslator.h"
-#import "SMCySettings.h"
+#import "SMCyAddressFinder.h"
 
-@interface SMCyBaseVC ()
+@interface SMCyAddressFinder ()
 
 @end
 
-@implementation SMCyBaseVC
+@implementation SMCyAddressFinder
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -28,8 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.view translateWith:[SMCySettings sharedInstance].translator];
-	// Do any additional setup after loading the view.
+    // Do any additional setup after loading the view from its nib.
 }
 
 - (void)didReceiveMemoryWarning

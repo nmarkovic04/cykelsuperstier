@@ -216,6 +216,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="saveReminder:" destination="8tO-xF-uVt" eventType="touchUpInside" id="AAn-xf-nWv"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="BrO-8n-UIm">
                                         <rect key="frame" x="184" y="8" width="116" height="44"/>
@@ -228,6 +231,9 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="skip:" destination="8tO-xF-uVt" eventType="touchUpInside" id="RUv-1N-SGj"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -255,6 +261,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="eMC-xd-sAp"/>
                     <connections>
+                        <outlet property="swFriday" destination="5iv-Ad-ys2" id="Trd-gA-52g"/>
+                        <outlet property="swMonday" destination="K3I-RA-zfd" id="RFQ-pA-acm"/>
+                        <outlet property="swThursday" destination="77n-kF-zxC" id="BDv-Va-Jr0"/>
+                        <outlet property="swTuesday" destination="R3e-uG-PRa" id="bY7-Yb-4He"/>
+                        <outlet property="swWednesday" destination="QIJ-o1-dc6" id="GkE-mA-d7b"/>
                         <segue destination="D2z-Pm-vy9" kind="push" identifier="reminderToFavorites" id="z6U-qY-aJH"/>
                     </connections>
                 </viewController>
@@ -578,31 +589,6 @@
         <image name="splash_illustration.png" width="320" height="119"/>
         <image name="splash_sky.png" width="320" height="212"/>
     </resources>
-    <classes>
-        <class className="SMCyBaseVC" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SMCyBaseVC.h"/>
-        </class>
-        <class className="SMCyLwFavorites" superclassName="SMCyBaseVC">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SMCyLwFavorites.h"/>
-        </class>
-        <class className="SMCyLwFirstTimeIntro" superclassName="SMCyBaseVC">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SMCyLwFirstTimeIntro.h"/>
-        </class>
-        <class className="SMCyLwPickAccountVC" superclassName="SMCyBaseVC">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SMCyLwPickAccountVC.h"/>
-            <relationships>
-                <relationship kind="action" name="onFbLogin:"/>
-                <relationship kind="action" name="onRegisterViaEmail:" candidateClass="UIButton"/>
-                <relationship kind="action" name="onSkip:" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="SMCyLwReminderVC" superclassName="SMCyBaseVC">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SMCyLwReminderVC.h"/>
-        </class>
-        <class className="SMCySplashVC" superclassName="SMCyBaseVC">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SMCySplashVC.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

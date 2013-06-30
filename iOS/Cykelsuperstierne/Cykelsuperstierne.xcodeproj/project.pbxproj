@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		BC25EE7A177F81B100010A1A /* SMrSlideHandleView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC25EE79177F81B100010A1A /* SMrSlideHandleView.m */; };
+		BC99CD1617801B6000AFED36 /* SMCyFavoritePlace.m in Sources */ = {isa = PBXBuildFile; fileRef = BC99CD1517801B6000AFED36 /* SMCyFavoritePlace.m */; };
+		BC99CD1917801B7C00AFED36 /* SMCyFavorites.m in Sources */ = {isa = PBXBuildFile; fileRef = BC99CD1817801B7C00AFED36 /* SMCyFavorites.m */; };
+		BC99CD1D17801F3200AFED36 /* SMCyAddressFinder.m in Sources */ = {isa = PBXBuildFile; fileRef = BC99CD1B17801F3200AFED36 /* SMCyAddressFinder.m */; };
+		BC99CD1E17801F3200AFED36 /* SMCyAddressFinder.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC99CD1C17801F3200AFED36 /* SMCyAddressFinder.xib */; };
+		BC99CD22178021B800AFED36 /* SMCyBaseSharedVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BC99CD20178021B800AFED36 /* SMCyBaseSharedVC.m */; };
 		BC9DE963177CC5B000D837B6 /* SMCyUser+DelegateNotifications.m in Sources */ = {isa = PBXBuildFile; fileRef = BC9DE962177CC5B000D837B6 /* SMCyUser+DelegateNotifications.m */; };
 		BC9DE969177CD16000D837B6 /* SMCyBusyController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC9DE967177CD16000D837B6 /* SMCyBusyController.m */; };
 		BC9DE96A177CD16000D837B6 /* SMCyBusyController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC9DE968177CD16000D837B6 /* SMCyBusyController.xib */; };
@@ -357,6 +362,15 @@
 /* Begin PBXFileReference section */
 		BC25EE78177F81B100010A1A /* SMrSlideHandleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMrSlideHandleView.h; sourceTree = "<group>"; };
 		BC25EE79177F81B100010A1A /* SMrSlideHandleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMrSlideHandleView.m; sourceTree = "<group>"; };
+		BC99CD1417801B6000AFED36 /* SMCyFavoritePlace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMCyFavoritePlace.h; sourceTree = "<group>"; };
+		BC99CD1517801B6000AFED36 /* SMCyFavoritePlace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMCyFavoritePlace.m; sourceTree = "<group>"; };
+		BC99CD1717801B7C00AFED36 /* SMCyFavorites.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMCyFavorites.h; sourceTree = "<group>"; };
+		BC99CD1817801B7C00AFED36 /* SMCyFavorites.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMCyFavorites.m; sourceTree = "<group>"; };
+		BC99CD1A17801F3200AFED36 /* SMCyAddressFinder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMCyAddressFinder.h; sourceTree = "<group>"; };
+		BC99CD1B17801F3200AFED36 /* SMCyAddressFinder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMCyAddressFinder.m; sourceTree = "<group>"; };
+		BC99CD1C17801F3200AFED36 /* SMCyAddressFinder.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SMCyAddressFinder.xib; sourceTree = "<group>"; };
+		BC99CD1F178021B800AFED36 /* SMCyBaseSharedVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMCyBaseSharedVC.h; sourceTree = "<group>"; };
+		BC99CD20178021B800AFED36 /* SMCyBaseSharedVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMCyBaseSharedVC.m; sourceTree = "<group>"; };
 		BC9DE961177CC5B000D837B6 /* SMCyUser+DelegateNotifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SMCyUser+DelegateNotifications.h"; sourceTree = "<group>"; };
 		BC9DE962177CC5B000D837B6 /* SMCyUser+DelegateNotifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SMCyUser+DelegateNotifications.m"; sourceTree = "<group>"; };
 		BC9DE966177CD16000D837B6 /* SMCyBusyController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMCyBusyController.h; sourceTree = "<group>"; };
@@ -782,6 +796,17 @@
 			path = Controls;
 			sourceTree = "<group>";
 		};
+		BC99CD1217801B0800AFED36 /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				BC99CD1417801B6000AFED36 /* SMCyFavoritePlace.h */,
+				BC99CD1517801B6000AFED36 /* SMCyFavoritePlace.m */,
+				BC99CD1717801B7C00AFED36 /* SMCyFavorites.h */,
+				BC99CD1817801B7C00AFED36 /* SMCyFavorites.m */,
+			);
+			path = Favorites;
+			sourceTree = "<group>";
+		};
 		BCB7B01C177B8EE400B48AE9 /* LoginWizard */ = {
 			isa = PBXGroup;
 			children = (
@@ -874,6 +899,7 @@
 				C03E0CB6177B33BF00B3192A /* Location */,
 				C03E0CBB177B33BF00B3192A /* Routes */,
 				C03E0CC9177B33BF00B3192A /* User */,
+				BC99CD1217801B0800AFED36 /* Favorites */,
 				C03E0CCE177B33BF00B3192A /* UtilsAndLibs */,
 				C03E0CC6177B33BF00B3192A /* SMCyConsts.h */,
 				C03E0CC7177B33BF00B3192A /* SMCySettings.h */,
@@ -1338,6 +1364,11 @@
 				BC9DE966177CD16000D837B6 /* SMCyBusyController.h */,
 				BC9DE967177CD16000D837B6 /* SMCyBusyController.m */,
 				BC9DE968177CD16000D837B6 /* SMCyBusyController.xib */,
+				BC99CD1A17801F3200AFED36 /* SMCyAddressFinder.h */,
+				BC99CD1B17801F3200AFED36 /* SMCyAddressFinder.m */,
+				BC99CD1C17801F3200AFED36 /* SMCyAddressFinder.xib */,
+				BC99CD1F178021B800AFED36 /* SMCyBaseSharedVC.h */,
+				BC99CD20178021B800AFED36 /* SMCyBaseSharedVC.m */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -1752,6 +1783,7 @@
 				C0AE80FB177C90D2004C2451 /* README.markdown in Resources */,
 				C0AE8103177C90D2004C2451 /* smroute_settings_example.plist in Resources */,
 				BC9DE96A177CD16000D837B6 /* SMCyBusyController.xib in Resources */,
+				BC99CD1E17801F3200AFED36 /* SMCyAddressFinder.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1813,6 +1845,10 @@
 				BC9DE963177CC5B000D837B6 /* SMCyUser+DelegateNotifications.m in Sources */,
 				BC9DE969177CD16000D837B6 /* SMCyBusyController.m in Sources */,
 				BC25EE7A177F81B100010A1A /* SMrSlideHandleView.m in Sources */,
+				BC99CD1617801B6000AFED36 /* SMCyFavoritePlace.m in Sources */,
+				BC99CD1917801B7C00AFED36 /* SMCyFavorites.m in Sources */,
+				BC99CD1D17801F3200AFED36 /* SMCyAddressFinder.m in Sources */,
+				BC99CD22178021B800AFED36 /* SMCyBaseSharedVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

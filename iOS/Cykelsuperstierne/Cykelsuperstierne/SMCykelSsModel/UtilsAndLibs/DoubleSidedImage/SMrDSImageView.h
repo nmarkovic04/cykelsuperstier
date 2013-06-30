@@ -19,6 +19,7 @@
 -(void) backImagePrepareFailed:(SMrDSImageView*) dsImageView;
 -(void) backImagePrepareCanceled:(SMrDSImageView*) dsImageView;
 -(void) imagesSwapped:(SMrDSImageView*) dsImageView;
+-(void) imageTapped:(SMrDSImageView*) dsImageView;
 @end
 
 

@@ -11,4 +11,13 @@
 
 @interface SMCyLwReminderVC : SMCyBaseVC
 
+@property (weak, nonatomic) IBOutlet UISwitch *swMonday;
+@property (weak, nonatomic) IBOutlet UISwitch *swTuesday;
+@property (weak, nonatomic) IBOutlet UISwitch *swWednesday;
+@property (weak, nonatomic) IBOutlet UISwitch *swThursday;
+@property (weak, nonatomic) IBOutlet UISwitch *swFriday;
+
+
+- (IBAction)saveReminder:(UIButton *)sender;
+- (IBAction)skip:(UIButton *)sender;
 @end

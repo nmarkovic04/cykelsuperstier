@@ -97,7 +97,13 @@
     [fm removeItemAtPath:path error:&err];
     if(err) return [[SMrError alloc] initWithNSError:err];
     else    return nil;
+
 }
+
+
+
+
+
 
 #pragma mark - device
 

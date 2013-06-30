@@ -22,6 +22,7 @@ typedef void(^AnimCompletion)(void);
 @property(nonatomic, strong) CABasicAnimation * backAnim;
 @property(nonatomic, strong) AnimCompletion animCompletionBlock;
 @property(nonatomic, assign) BOOL tempAutoSwap;
+@property(nonatomic, strong) UITapGestureRecognizer * tapRecognizer;
 @end
 
 @implementation SMrDSImageView
@@ -105,10 +106,40 @@ typedef void(^AnimCompletion)(void);
     _swapDuration = 0.5;
     [self setBorderColor:[UIColor whiteColor]];
     _autoSwap = NO;
+    [self addTapRecognizer];
+}
+
+-(void) addTapRecognizer{
+    
+    if(![self isUserInteractionEnabled]) return;
+    
+    if(self.tapRecognizer){
+        [self removeTapRecognizer];
+    }
+    self.tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTap:)];
+    [self addGestureRecognizer:self.tapRecognizer];
+}
+
+-(void) removeTapRecognizer{
+    if(self.tapRecognizer){
+        [self removeGestureRecognizer:self.tapRecognizer];
+        self.tapRecognizer = nil;
+    }
+}
+
+- (void)onTap:(UITapGestureRecognizer *)sender{
+    [self notifyImageTapped];
 }
 
 
 #pragma mark - setters/getters
+
+- (void)setUserInteractionEnabled:(BOOL)userInteractionEnabled{
+    if(userInteractionEnabled == [self isUserInteractionEnabled]) return;
+    [super setUserInteractionEnabled:userInteractionEnabled];
+    if(userInteractionEnabled) [self addTapRecognizer];
+    else [self removeTapRecognizer];
+}
 
 - (void)setImage:(UIImage *)image{
 //    [super setImage:image];
@@ -360,6 +391,11 @@ typedef void(^AnimCompletion)(void);
 -(void) notifyImagesSwapped{
      [self notifyDelegateWithSelector:@selector(imagesSwapped:)];
 }
+-(void) notifyImageTapped{
+    [self notifyDelegateWithSelector:@selector(imageTapped:)];
+}
+
+
 
 -(void) notifyDelegateWithSelector:(SEL)sel{
     

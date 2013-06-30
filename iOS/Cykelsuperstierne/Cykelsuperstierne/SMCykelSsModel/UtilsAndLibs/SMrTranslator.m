@@ -157,9 +157,11 @@ static char kTranslationKeysObj;
         textKey = [dict valueForKey:@"text"];
         placeholderKey = [dict valueForKey:@"placeholder"];
     } else {
+        self.translationKeys = [NSMutableDictionary new];
         textKey = self.text;
+        if(textKey) [self.translationKeys setValue:textKey forKey:@"text"];
         placeholderKey = self.placeholder;
-        self.translationKeys = @{@"text" : textKey, @"placeholder" : placeholderKey};
+        if(placeholderKey) [self.translationKeys setValue:placeholderKey forKey:@"text"];
     }
     
     self.text = [translator translateString:textKey];
@@ -181,8 +183,9 @@ static char kTranslationKeysObj;
     if(dict){
         textKey = [dict valueForKey:@"text"];
     } else {
+        self.translationKeys = [NSMutableDictionary new];
         textKey = self.text;
-        self.translationKeys = @{@"text" : textKey};
+        if(textKey) self.translationKeys = @{@"text" : textKey};
     }
     
     self.text = [translator translateString:textKey];

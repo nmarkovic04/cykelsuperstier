@@ -9,6 +9,7 @@
 #import "SMCyLwPickAccountVC.h"
 #import "SMrTranslator.h"
 #import "SMCyBusyController.h"
+#import "SMCyEmailSignupVC.h"
 
 @interface SMCyLwPickAccountVC ()
 
@@ -58,6 +59,20 @@
 }
 
 - (IBAction)onRegisterViaEmail:(UIButton *)sender {
+    
+    if([SMCyUser activeUser].accountType != AT_EMAIL){
+        //this will create new fb account and try to log in
+        [SMCyUser activeUser].accountType = AT_EMAIL;
+    } else if([[SMCyUser activeUser] isLoggedin]){
+        [self userDidLogIN:[SMCyUser activeUser]];
+        
+        return;
+    }
+    
+    [SMCyEmailSignupVC showModalOnViewController:self animated:YES withCompletion:^(){
+        //do something
+    }];
+
 }
 
 - (IBAction)onSkip:(UIButton *)sender {
