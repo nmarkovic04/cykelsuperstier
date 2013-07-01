@@ -1,24 +1,18 @@
 //
-//  SMCyMainMapVC.m
+//  SMCyRouteMap.m
 //  Cykelsuperstierne
 //
-//  Created by Rasko on 6/30/13.
+//  Created by Rasko Gojkovic on 7/1/13.
 //  Copyright (c) 2013 Rasko Gojkovic. All rights reserved.
 //
 
-#import "SMCyMainMapVC.h"
-#import "SMCyMainMapVC+Animations.h"
-#import <QuartzCore/QuartzCore.h>
-#import "SMrUtil.h"
-#import "SMCyMenuController.h"
-#import "SMiBikeCPHMapTileSource.h"
-#import "RMOpenStreetMapSource.h"
+#import "SMCyRouteMapVC.h"
 
-@interface SMCyMainMapVC ()
+@interface SMCyRouteMapVC ()
 
 @end
 
-@implementation SMCyMainMapVC
+@implementation SMCyRouteMapVC
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -32,18 +26,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self performSegueWithIdentifier:@"SMCyMenu" sender:self];
-    [self initializeOpenCloseStates];
-    [self.mapView setTileSource:TILE_SOURCE];
-    [self.mapView setDelegate:self];
-    [self.mapView setMaxZoom:20.0];
-    
-    [self.mapView setCenterCoordinate:CLLocationCoordinate2DMake(55.675455,12.566643) animated:NO];
-    self.mapView.userTrackingMode = RMUserTrackingModeFollow;
-    self.mapView.triggerUpdateOnHeadingChange = YES;
-    self.mapView.displayHeadingCalibration = NO;
-    self.mapView.enableBouncing = NO;
-    
 	// Do any additional setup after loading the view.
 }
 
@@ -53,43 +35,10 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)addChildViewController:(UIViewController *)childController{
-    [super addChildViewController:childController];
-    UIViewController * addedVC = childController;
-    if([addedVC isKindOfClass:[UINavigationController class]]){
-        addedVC = [addedVC.childViewControllers objectAtIndex:0];
-    }
-    if([addedVC isKindOfClass:[SMCyMenuController class]]){
-        _menuVC = (SMCyMenuController*)addedVC;
-        _menuVC.delegate = self;
-    }
-}
 
-
-- (IBAction)onSearchLocation:(UIButton *)sender {
-    [self performSegueWithIdentifier:@"mainMapToRouteSetter" sender:self];    
-}
-
-- (IBAction)onChangeOrientation:(UIButton *)sender {
-
-}
-
-#pragma mark - menu delegate methods
-
--(void)mapMenuSelectionChanged:(SMCyMenu*)menu{
-    
-}
-
--(void)userMenuDidAddNewFavorite:(SMCyMenu*)menu{
-    
-}
-
--(void)userMenuProfileClicked:(SMCyMenu*)menu{
-    
-}
-
--(void)userMenuAboutClicked:(SMCyMenu*)menu{
-    
+- (IBAction)onClose:(UIButton *)sender {
+#warning unfinished method
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - RMMap delegate methods
@@ -293,9 +242,7 @@
     
 }
 
-
-
-
 #pragma mark -
+
 
 @end

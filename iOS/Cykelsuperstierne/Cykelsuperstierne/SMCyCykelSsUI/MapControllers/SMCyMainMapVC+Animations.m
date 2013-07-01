@@ -13,7 +13,6 @@
 
 @implementation SMCyMainMapVC (Animations)
 
-#pragma mark - setters / getters
 
 -(UIPanGestureRecognizer *)mainPan{
     return _mainPan;
@@ -45,7 +44,8 @@
     }
 }
 
-#pragma mark - 
+#pragma mark - animation
+
 -(void) onUserMenuHandlePan:(UIPanGestureRecognizer*)sender{
     if(sender.state == UIGestureRecognizerStateBegan){
         _startPanningPosition = [self getCurrentMainViewPosition];
@@ -119,7 +119,7 @@
         }
         return;
     }
-    
+
     [self panViewFor:[sender translationInView:self.mainViewContainer].x];
 }
 
@@ -128,15 +128,12 @@
     pos.x = _startPanningPosition + offset;
     _isMenuClosed = NO;
     if(pos.x > _openedMenuPosition) {
-        [self.mainTap setEnabled:YES];
-        [self.mainPan setEnabled:YES];
         pos.x = _openedMenuPosition;
+        [self onMenuOpened];
     }
     else if(pos.x < _closedMenuPosition) {
-        [self.mainTap setEnabled:NO];
-        [self.mainPan setEnabled:NO];
         pos.x = _closedMenuPosition;
-        _isMenuClosed = NO;
+        [self onMenuClosed];
     }
     self.mainViewContainer.layer.position = pos;
 }
@@ -146,6 +143,13 @@
     self.mainViewContainer.layer.position = CGPointMake(0.0, 0.0);
     _openedMenuPosition = self.menuContainer.bounds.size.width;
     _closedMenuPosition = 0.0;
+    
+    _pullToCloseView = [UIView new];
+    CGRect frm = self.mainViewContainer.bounds;
+    frm.size.width = frm.size.width - _openedMenuPosition;
+    _pullToCloseView.frame = frm;
+    [self.mainViewContainer addSubview:_pullToCloseView];
+    
     
     UITapGestureRecognizer * mapHTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onMapMenuHandleTap:)];
     UIPanGestureRecognizer * mapHPan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(onMapMenuHandlePan:)];
@@ -160,18 +164,16 @@
     [self.userMenuHandle addGestureRecognizer:userHPan];
     
     self.mainTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onMainViewTap:)];
-    [self.mainViewContainer addGestureRecognizer:self.mainTap];
+    [_pullToCloseView addGestureRecognizer:self.mainTap];
     
     self.mainPan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(onMainViewPan:)];
-    [self.mainViewContainer addGestureRecognizer:self.mainPan];
-    
-    [self.mainTap setEnabled:NO];
-    [self.mainPan setEnabled:NO];
+    [_pullToCloseView addGestureRecognizer:self.mainPan];
     
     
     self.isActiveMenuMAP = YES;
     _isActiveStateOpeningMenu = YES;
-    _isMenuClosed = YES;
+
+    [self onMenuClosed];
     
 }
 
@@ -200,9 +202,7 @@
     [self.mainViewContainer.layer addAnimation:anim forKey:@"open"];
     [CATransaction commit];
     
-    _isMenuClosed = NO;
-    [self.mainTap setEnabled:YES];
-    [self.mainPan setEnabled:YES];
+    [self onMenuOpened];
     return YES;
     
 }
@@ -231,10 +231,22 @@
     [self.mainViewContainer.layer addAnimation:anim forKey:@"open"];
     [CATransaction commit];
     
-    _isMenuClosed = YES;
-    [self.mainTap setEnabled:NO];
-    [self.mainPan setEnabled:NO];
+    
+
+    [self onMenuClosed];
     return YES;
+}
+
+-(void) onMenuOpened{
+    [SMCyMenu sharedInstance].delegate = self;
+    _isMenuClosed = NO;
+    _pullToCloseView.hidden = NO;
+}
+
+-(void) onMenuClosed{
+    [SMCyMenu sharedInstance].delegate = nil;
+    _isMenuClosed = YES;
+    _pullToCloseView.hidden = YES;
 }
 
 -(float) getCurrentMainViewPosition{
