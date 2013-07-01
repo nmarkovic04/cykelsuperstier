@@ -7,10 +7,12 @@
 //
 
 #import "SMCyBaseVC.h"
+#import "SMCyMenu.h"
 
 @class SMCyMenuController;
 
-@interface SMCyMainMapVC : SMCyBaseVC{
+
+@interface SMCyMainMapVC : SMCyBaseVC<SMCyMenuDelegate>{
 @protected
     float _openedMenuPosition;
     float _closedMenuPosition;

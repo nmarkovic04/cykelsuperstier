@@ -610,67 +610,12 @@
         <image name="splash_illustration.png" width="320" height="119"/>
         <image name="splash_sky.png" width="320" height="212"/>
     </resources>
-    <classes>
-        <class className="SMCyBaseVC" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SMCyBaseVC.h"/>
-        </class>
-        <class className="SMCyLwFavorites" superclassName="SMCyBaseVC">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SMCyLwFavorites.h"/>
-            <relationships>
-                <relationship kind="action" name="onSaveFavorites:" candidateClass="UIButton"/>
-                <relationship kind="action" name="onSkip:" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="homeAddress" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="saveFavoritesButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="skipButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="workAddress" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="SMCyLwFirstTimeIntro" superclassName="SMCyBaseVC">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SMCyLwFirstTimeIntro.h"/>
-            <relationships>
-                <relationship kind="action" name="onExit:" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="exitButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="SMCyLwPickAccountVC" superclassName="SMCyBaseVC">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SMCyLwPickAccountVC.h"/>
-            <relationships>
-                <relationship kind="action" name="onFbLogin:"/>
-                <relationship kind="action" name="onRegisterViaEmail:" candidateClass="UIButton"/>
-                <relationship kind="action" name="onSkip:" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="SMCyLwReminderVC" superclassName="SMCyBaseVC">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SMCyLwReminderVC.h"/>
-            <relationships>
-                <relationship kind="action" name="saveReminder:" candidateClass="UIButton"/>
-                <relationship kind="action" name="skip:" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="swFriday" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="swMonday" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="swThursday" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="swTuesday" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="swWednesday" candidateClass="UISwitch"/>
-            </relationships>
-        </class>
-        <class className="SMCyMainMapVC" superclassName="SMCyBaseVC">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SMCyMainMapVC.h"/>
-            <relationships>
-                <relationship kind="outlet" name="mainViewContainer" candidateClass="UIView"/>
-                <relationship kind="outlet" name="mapMenuHandle" candidateClass="UIView"/>
-                <relationship kind="outlet" name="menuContainer" candidateClass="UIView"/>
-                <relationship kind="outlet" name="userMenuHandle" candidateClass="UIView"/>
-            </relationships>
-        </class>
-        <class className="SMCySplashVC" superclassName="SMCyBaseVC">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SMCySplashVC.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="GXt-0F-POp"/>
+        <segue reference="fzL-bX-2BF"/>
     </inferredMetricsTieBreakers>
 </document>

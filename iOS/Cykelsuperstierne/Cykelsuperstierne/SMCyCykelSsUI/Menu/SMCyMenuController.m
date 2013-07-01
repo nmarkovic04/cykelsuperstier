@@ -35,13 +35,24 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (id<SMCyMenuDelegate>)delegate{
+    return [SMCyMenu sharedInstance].delegate;
+}
+
+- (void)setDelegate:(id<SMCyMenuDelegate>)delegate{
+    [SMCyMenu sharedInstance].delegate = delegate;
+}
+
 -(void) switchToUserMenu{
-    self.view.backgroundColor = [UIColor blueColor];
+    [self.navigationController popToRootViewControllerAnimated:NO];
+    [self performSegueWithIdentifier:@"userMenu" sender:self];
 }
 
 -(void) switchToMapMenu{
-    self.view.backgroundColor = [UIColor greenColor];
+    [self.navigationController popToRootViewControllerAnimated:NO];
+    [self performSegueWithIdentifier:@"mapMenu" sender:self];
 }
+
 
 
 @end

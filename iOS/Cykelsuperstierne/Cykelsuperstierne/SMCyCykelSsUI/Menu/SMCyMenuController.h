@@ -7,8 +7,14 @@
 //
 
 #import "SMCyBaseVC.h"
+#import "SMCyMenu.h"
 
 @interface SMCyMenuController : SMCyBaseVC
+
+@property(nonatomic) id<SMCyMenuDelegate> delegate;
+
 -(void) switchToUserMenu;
 -(void) switchToMapMenu;
+
+
 @end

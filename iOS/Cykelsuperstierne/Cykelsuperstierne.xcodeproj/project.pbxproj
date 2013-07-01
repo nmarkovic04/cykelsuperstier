@@ -18,6 +18,10 @@
 		BC99CD1E17801F3200AFED36 /* SMCyAddressFinder.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC99CD1C17801F3200AFED36 /* SMCyAddressFinder.xib */; };
 		BC99CD22178021B800AFED36 /* SMCyBaseSharedVC.m in Sources */ = {isa = PBXBuildFile; fileRef = BC99CD20178021B800AFED36 /* SMCyBaseSharedVC.m */; };
 		BC99CD2C1780558700AFED36 /* SMCyEmbedSBSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = BC99CD2B1780558700AFED36 /* SMCyEmbedSBSegue.m */; };
+		BC9B1C1617813E2E00D2A742 /* SMCyPushSBSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = BC9B1C1517813E2E00D2A742 /* SMCyPushSBSegue.m */; };
+		BC9B1C1A1781416100D2A742 /* Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC9B1C191781416100D2A742 /* Account.storyboard */; };
+		BC9B1C1D1781450800D2A742 /* SMCyMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = BC9B1C1C1781450800D2A742 /* SMCyMenu.m */; };
+		BC9B1C2017814D8F00D2A742 /* SMCyNoAnimPush.m in Sources */ = {isa = PBXBuildFile; fileRef = BC9B1C1F17814D8F00D2A742 /* SMCyNoAnimPush.m */; };
 		BC9DE963177CC5B000D837B6 /* SMCyUser+DelegateNotifications.m in Sources */ = {isa = PBXBuildFile; fileRef = BC9DE962177CC5B000D837B6 /* SMCyUser+DelegateNotifications.m */; };
 		BC9DE969177CD16000D837B6 /* SMCyBusyController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC9DE967177CD16000D837B6 /* SMCyBusyController.m */; };
 		BC9DE96A177CD16000D837B6 /* SMCyBusyController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC9DE968177CD16000D837B6 /* SMCyBusyController.xib */; };
@@ -385,6 +389,13 @@
 		BC99CD20178021B800AFED36 /* SMCyBaseSharedVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMCyBaseSharedVC.m; sourceTree = "<group>"; };
 		BC99CD2A1780558700AFED36 /* SMCyEmbedSBSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMCyEmbedSBSegue.h; sourceTree = "<group>"; };
 		BC99CD2B1780558700AFED36 /* SMCyEmbedSBSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMCyEmbedSBSegue.m; sourceTree = "<group>"; };
+		BC9B1C1417813E2E00D2A742 /* SMCyPushSBSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMCyPushSBSegue.h; sourceTree = "<group>"; };
+		BC9B1C1517813E2E00D2A742 /* SMCyPushSBSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMCyPushSBSegue.m; sourceTree = "<group>"; };
+		BC9B1C191781416100D2A742 /* Account.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Account.storyboard; sourceTree = "<group>"; };
+		BC9B1C1B1781450800D2A742 /* SMCyMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMCyMenu.h; sourceTree = "<group>"; };
+		BC9B1C1C1781450800D2A742 /* SMCyMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMCyMenu.m; sourceTree = "<group>"; };
+		BC9B1C1E17814D8F00D2A742 /* SMCyNoAnimPush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMCyNoAnimPush.h; sourceTree = "<group>"; };
+		BC9B1C1F17814D8F00D2A742 /* SMCyNoAnimPush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMCyNoAnimPush.m; sourceTree = "<group>"; };
 		BC9DE961177CC5B000D837B6 /* SMCyUser+DelegateNotifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SMCyUser+DelegateNotifications.h"; sourceTree = "<group>"; };
 		BC9DE962177CC5B000D837B6 /* SMCyUser+DelegateNotifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SMCyUser+DelegateNotifications.m"; sourceTree = "<group>"; };
 		BC9DE966177CD16000D837B6 /* SMCyBusyController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMCyBusyController.h; sourceTree = "<group>"; };
@@ -854,8 +865,20 @@
 			children = (
 				BC99CD2A1780558700AFED36 /* SMCyEmbedSBSegue.h */,
 				BC99CD2B1780558700AFED36 /* SMCyEmbedSBSegue.m */,
+				BC9B1C1417813E2E00D2A742 /* SMCyPushSBSegue.h */,
+				BC9B1C1517813E2E00D2A742 /* SMCyPushSBSegue.m */,
+				BC9B1C1E17814D8F00D2A742 /* SMCyNoAnimPush.h */,
+				BC9B1C1F17814D8F00D2A742 /* SMCyNoAnimPush.m */,
 			);
 			path = CustomSegues;
+			sourceTree = "<group>";
+		};
+		BC9B1C181781410400D2A742 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				BC9B1C191781416100D2A742 /* Account.storyboard */,
+			);
+			path = Account;
 			sourceTree = "<group>";
 		};
 		BCB7B01C177B8EE400B48AE9 /* LoginWizard */ = {
@@ -955,6 +978,8 @@
 				C03E0CC6177B33BF00B3192A /* SMCyConsts.h */,
 				C03E0CC7177B33BF00B3192A /* SMCySettings.h */,
 				C03E0CC8177B33BF00B3192A /* SMCySettings.m */,
+				BC9B1C1B1781450800D2A742 /* SMCyMenu.h */,
+				BC9B1C1C1781450800D2A742 /* SMCyMenu.m */,
 			);
 			path = SMCykelSsModel;
 			sourceTree = "<group>";
@@ -1087,6 +1112,7 @@
 		C03E0CE5177B33BF00B3192A /* SMCykelSsUI */ = {
 			isa = PBXGroup;
 			children = (
+				BC9B1C181781410400D2A742 /* Account */,
 				BC1AB6C31780B4A50067CC13 /* Menu */,
 				BC8C8E7A17805AF200420705 /* MapControllers */,
 				BC99CD291780549700AFED36 /* CustomSegues */,
@@ -1840,6 +1866,7 @@
 				BC9DE96A177CD16000D837B6 /* SMCyBusyController.xib in Resources */,
 				BC99CD1E17801F3200AFED36 /* SMCyAddressFinder.xib in Resources */,
 				BC1AB6C81780B5000067CC13 /* SMCyMenu.storyboard in Resources */,
+				BC9B1C1A1781416100D2A742 /* Account.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1909,6 +1936,9 @@
 				BC8C8E7E17805B3D00420705 /* SMCyMainMapVC.m in Sources */,
 				BC1AB6C21780AD510067CC13 /* SMCyMainMapVC+Animations.m in Sources */,
 				BC1AB6C61780B4CE0067CC13 /* SMCyMenuController.m in Sources */,
+				BC9B1C1617813E2E00D2A742 /* SMCyPushSBSegue.m in Sources */,
+				BC9B1C1D1781450800D2A742 /* SMCyMenu.m in Sources */,
+				BC9B1C2017814D8F00D2A742 /* SMCyNoAnimPush.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

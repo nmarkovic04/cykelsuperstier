@@ -49,7 +49,27 @@
     }
     if([addedVC isKindOfClass:[SMCyMenuController class]]){
         _menuVC = (SMCyMenuController*)addedVC;
+        _menuVC.delegate = self;
     }
 }
 
+#pragma mark - menu delegate methods
+
+-(void)mapMenuSelectionChanged:(SMCyMenu*)menu{
+    
+}
+
+-(void)userMenuDidAddNewFavorite:(SMCyMenu*)menu{
+    
+}
+
+-(void)userMenuProfileClicked:(SMCyMenu*)menu{
+    
+}
+
+-(void)userMenuAboutClicked:(SMCyMenu*)menu{
+    
+}
+
+#pragma mark -
 @end
