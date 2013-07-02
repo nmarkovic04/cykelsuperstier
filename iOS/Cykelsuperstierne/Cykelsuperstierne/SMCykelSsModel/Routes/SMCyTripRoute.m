@@ -7,6 +7,8 @@
 //
 
 #import "SMCyTripRoute.h"
+#import "SMCyTransportation.h"
+
 @interface SMCyTripRoute()
 @property(nonatomic, strong, readwrite) NSMutableArray * internalRoutes;
 @end
@@ -23,7 +25,7 @@
         self.delegate = delegate;
         [self setStart:start andEnd:end];
     }
-    
+    SMCyTransportation * temp = [SMCyTransportation sharedInstance];
     return self;
 }
 

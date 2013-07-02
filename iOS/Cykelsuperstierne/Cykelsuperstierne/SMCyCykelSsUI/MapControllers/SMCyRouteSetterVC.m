@@ -60,7 +60,11 @@
 
 -(void) prepareRoute{
     self.route = nil;
-    if(!self.startLocation || !self.endLocation) return;
+    if(!self.startLocation || !self.endLocation){
+        [SMCyBusyController close];
+        return;
+    }
+    
     self.route = [[SMCyTripRoute alloc] initWithStart:self.startLocation end:self.endLocation andDelegate:self];
     
 }
