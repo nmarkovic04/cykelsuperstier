@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="zUJ-bF-eww">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="zUJ-bF-eww">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -654,6 +654,9 @@
                                                 <state key="highlighted">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="onBreakRoute:" destination="dSY-C2-4zx" eventType="touchUpInside" id="gS7-U9-nav"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="591-Zv-dqv">
                                                 <rect key="frame" x="20" y="20" width="43" height="44"/>
@@ -813,87 +816,6 @@
         <image name="splash_illustration.png" width="320" height="119"/>
         <image name="splash_sky.png" width="320" height="212"/>
     </resources>
-    <classes>
-        <class className="RMMapView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RMMapView.h"/>
-            <relationships>
-                <relationship kind="outlet" name="delegate"/>
-            </relationships>
-        </class>
-        <class className="SMCyBaseVC" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SMCyBaseVC.h"/>
-        </class>
-        <class className="SMCyLwFavorites" superclassName="SMCyBaseVC">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SMCyLwFavorites.h"/>
-            <relationships>
-                <relationship kind="action" name="onSaveFavorites:" candidateClass="UIButton"/>
-                <relationship kind="action" name="onSkip:" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="homeAddress" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="saveFavoritesButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="skipButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="workAddress" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="SMCyLwFirstTimeIntro" superclassName="SMCyBaseVC">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SMCyLwFirstTimeIntro.h"/>
-            <relationships>
-                <relationship kind="action" name="onExit:" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="exitButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="SMCyLwPickAccountVC" superclassName="SMCyBaseVC">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SMCyLwPickAccountVC.h"/>
-            <relationships>
-                <relationship kind="action" name="onFbLogin:"/>
-                <relationship kind="action" name="onRegisterViaEmail:" candidateClass="UIButton"/>
-                <relationship kind="action" name="onSkip:" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="SMCyLwReminderVC" superclassName="SMCyBaseVC">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SMCyLwReminderVC.h"/>
-            <relationships>
-                <relationship kind="action" name="saveReminder:" candidateClass="UIButton"/>
-                <relationship kind="action" name="skip:" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="swFriday" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="swMonday" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="swThursday" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="swTuesday" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="swWednesday" candidateClass="UISwitch"/>
-            </relationships>
-        </class>
-        <class className="SMCyMainMapVC" superclassName="SMCyBaseVC">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SMCyMainMapVC.h"/>
-            <relationships>
-                <relationship kind="action" name="onChangeOrientation:" candidateClass="UIButton"/>
-                <relationship kind="action" name="onSearchLocation:" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="mainViewContainer" candidateClass="UIView"/>
-                <relationship kind="outlet" name="mapMenuHandle" candidateClass="UIView"/>
-                <relationship kind="outlet" name="mapView" candidateClass="RMMapView"/>
-                <relationship kind="outlet" name="menuContainer" candidateClass="UIView"/>
-                <relationship kind="outlet" name="userMenuHandle" candidateClass="UIView"/>
-            </relationships>
-        </class>
-        <class className="SMCyRouteMapVC" superclassName="SMCyMainMapVC">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SMCyRouteMapVC.h"/>
-            <relationships>
-                <relationship kind="action" name="onClose:" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="SMCyRouteSetterVC" superclassName="SMCyBaseVC">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SMCyRouteSetterVC.h"/>
-            <relationships>
-                <relationship kind="action" name="bottomTextFieldTouch:" candidateClass="UIButton"/>
-                <relationship kind="action" name="onBack:" candidateClass="UIButton"/>
-                <relationship kind="action" name="onStart:" candidateClass="UIButton"/>
-                <relationship kind="action" name="topTextFieldTouch:" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="bottomTextField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="topTextField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="SMCySplashVC" superclassName="SMCyBaseVC">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SMCySplashVC.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

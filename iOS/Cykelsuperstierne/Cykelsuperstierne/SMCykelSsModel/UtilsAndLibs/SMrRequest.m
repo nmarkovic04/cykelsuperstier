@@ -99,7 +99,7 @@ static const NSString * CONNECTION_ERROR = @"connErr";
     self.service = nil;
     self.arguments = nil;
     self.secureConnection = NO;
-    self.state = RS_NOTINITIALIZED;
+    self.state = RqS_NOTINITIALIZED;
     self.requestError = nil;
     self.queuePriority = NSOperationQueuePriorityVeryLow;
 
@@ -114,10 +114,10 @@ static const NSString * CONNECTION_ERROR = @"connErr";
 - (void)setMainUrl:(NSString *)mainUrl{
     if(mainUrl && mainUrl.length > 3){
         _mainUrl = mainUrl;
-        self.state = RS_READY;
+        self.state = RqS_READY;
     } else {
         _mainUrl = nil;
-        self.state = RS_NOTINITIALIZED;
+        self.state = RqS_NOTINITIALIZED;
     }
 }
 
@@ -129,7 +129,7 @@ static const NSString * CONNECTION_ERROR = @"connErr";
 #pragma mark - request methods
 
 -(SMrError*) requestWithCompletion:(SMRequestCompletionBlock) completion{
-    if(self.state == RS_NOTINITIALIZED){
+    if(self.state == RqS_NOTINITIALIZED){
         // currently, only reason for uninitialized state is lack of mainUrl
         if(!self.mainUrl || self.mainUrl.length < 4) {
             SMrError * ret = [SMrError new];
@@ -149,14 +149,14 @@ static const NSString * CONNECTION_ERROR = @"connErr";
     
     
     [[SMrRequest sharedQueue] addOperation:self];
-    self.state = RS_REQUESTED;
+    self.state = RqS_REQUESTED;
     
     return nil;
 }
 
 -(void) _startConnection{
     
-    self.state = RS_WAITINGFORRESPONSE;
+    self.state = RqS_WAITINGFORRESPONSE;
     NSMutableURLRequest * request = [self generateURLRequest];
 
     NSLog(@"Sent: %@", request.description);
@@ -183,7 +183,7 @@ static const NSString * CONNECTION_ERROR = @"connErr";
             
             localSelfCopy.dataType = [resp MIMEType];
         }
-        localSelfCopy.state = RS_RESPONSERECEIVED;
+        localSelfCopy.state = RqS_RESPONSERECEIVED;
         if(localSelfCopy.requestCompletionBlock){
             NSOperationQueue * mainQ = [NSOperationQueue mainQueue];
 //            NSBlockOperation * bo = [NSBlockOperation blockOperationWithBlock:^{

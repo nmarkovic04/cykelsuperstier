@@ -11,6 +11,7 @@
 #import "SMCyLocation.h"
 #import "SMCyTripRoute.h"
 #import "SMCyBusyController.h"
+#import "SMCyUser.h"
 
 @interface SMCyRouteSetterVC ()
 @property(nonatomic, strong) SMCyTripRoute * route;
@@ -66,7 +67,7 @@
     }
     
     self.route = [[SMCyTripRoute alloc] initWithStart:self.startLocation end:self.endLocation andDelegate:self];
-    
+    [SMCyUser activeUser].activeRoute= self.route;
 }
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{

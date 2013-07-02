@@ -19,6 +19,8 @@
 @property(nonatomic,strong) NSString * icon_url;
 @property(nonatomic,strong) NSString * zip;
 @property(nonatomic,strong) NSNumber * order;
+@property(nonatomic,strong) NSNumber * distance0;
+@property(nonatomic,strong) NSNumber * distance1;
 @property(nonatomic,strong) NSNumber * relevance;
 
 @property(nonatomic,strong) NSNumber * latitude;

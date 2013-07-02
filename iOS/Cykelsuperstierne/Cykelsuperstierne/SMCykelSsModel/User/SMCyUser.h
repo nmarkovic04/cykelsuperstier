@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "SMCyAccount.h"
 #import "SMrURLImage.h"
-
+#import "SMCyRoute.h"
 @class SMCyUser;
 
 @protocol SMCyUserDelegate <NSObject>
@@ -51,6 +51,7 @@
 @property (nonatomic, strong, readonly) NSString * user_id;
 @property (nonatomic, strong, readonly) SMCyAccount * account;
 @property (nonatomic, strong, readonly) SMrURLImage * image;
+@property (nonatomic, strong) SMCyRoute * activeRoute;
 @property (nonatomic, assign) eAccountType accountType;
 
 -(void) addDelegate:(id<SMCyUserDelegate>)delegate;

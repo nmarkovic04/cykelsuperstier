@@ -7,7 +7,8 @@
 //
 
 #import "SMCyRouteMapVC.h"
-
+#import "SMCyUser.h"
+#import "SMCyTripRoute.h"
 @interface SMCyRouteMapVC ()
 
 @end
@@ -35,6 +36,17 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+- (IBAction)onBreakRoute:(UIButton *)sender {
+    
+    if([[SMCyUser activeUser].activeRoute isMemberOfClass:[SMCyTripRoute class]]){
+        SMCyTripRoute* tripRoute= (SMCyTripRoute*)[SMCyUser activeUser].activeRoute;
+        
+        BOOL canBreakRoute= [tripRoute breakRoute];
+        
+        //TODO: do something with the result, Rasko...
+    }
+}
 
 - (IBAction)onClose:(UIButton *)sender {
 #warning unfinished method

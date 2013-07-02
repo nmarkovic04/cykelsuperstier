@@ -12,5 +12,6 @@
 
 @interface SMCyRouteMapVC : SMCyMainMapVC
 
+- (IBAction)onBreakRoute:(UIButton *)sender;
 - (IBAction)onClose:(UIButton *)sender;
 @end

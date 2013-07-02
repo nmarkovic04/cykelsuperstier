@@ -15,11 +15,11 @@
 
 typedef void (^SMRequestCompletionBlock) (SMrRequest*);
 typedef enum _eSmRequestState{
-    RS_NOTINITIALIZED,
-    RS_READY,
-    RS_REQUESTED,
-    RS_WAITINGFORRESPONSE,
-    RS_RESPONSERECEIVED
+    RqS_NOTINITIALIZED,
+    RqS_READY,
+    RqS_REQUESTED,
+    RqS_WAITINGFORRESPONSE,
+    RqS_RESPONSERECEIVED
 } eSmRequestState;
 
 @property(nonatomic, strong, readonly)  NSData * receivedData;

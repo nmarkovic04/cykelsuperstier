@@ -14,9 +14,10 @@
 
 @property(nonatomic, readonly) BOOL isValid;
 @property(nonatomic, strong, readonly) NSArray * routes;
+@property(nonatomic, strong) NSArray* brokenRoutes; // array of SMCyBrokenRouteInfo
 
 -(id) initWithStart:(SMCyLocation*)start end:(SMCyLocation*)end andDelegate:(id<SMCyRouteDelegate>)delegate;
 -(void) setStart:(SMCyLocation*)start andEnd:(SMCyLocation*)end;
--(void) breakRoute;
+-(BOOL) breakRoute;
 
 @end
