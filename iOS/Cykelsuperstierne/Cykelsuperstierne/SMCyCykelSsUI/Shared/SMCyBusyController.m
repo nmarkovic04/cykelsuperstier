@@ -56,9 +56,15 @@ static SMCyBusyController * activeBC = nil;
 
 +(void)close{
     if(!activeBC) return;
-    [activeBC dismissViewControllerAnimated:YES completion:^{
-        activeBC = nil;
-    }];
+    if([activeBC parentViewController]){
+        [activeBC.view removeFromSuperview];
+        [activeBC removeFromParentViewController];
+    }
+    activeBC = nil;
+    
+//    [activeBC dismissViewControllerAnimated:YES completion:^{
+//        activeBC = nil;
+//    }];
 }
 
 +(BOOL) isVisible{

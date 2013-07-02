@@ -29,7 +29,17 @@ typedef enum _eRouteState {
     SMCyLocation * _end;
     eRouteState _state;
     SMrError * _error;
+    NSString * _name;
+    NSString * _startName;
+    NSString * _endName;
+    NSNumber * _distance;
+    NSNumber * _ridingTime;
 }
+@property(nonatomic, strong, readonly) NSNumber * distance;
+@property(nonatomic, strong, readonly) NSNumber * ridingTime;
+@property(nonatomic, strong, readonly) NSString * name;
+@property(nonatomic, strong, readonly) NSString * startName;
+@property(nonatomic, strong, readonly) NSString * endName;
 @property(nonatomic, readonly) SMCyLocation * start;
 @property(nonatomic, readonly) SMCyLocation * end;
 @property(nonatomic, readonly) SMrError * error;

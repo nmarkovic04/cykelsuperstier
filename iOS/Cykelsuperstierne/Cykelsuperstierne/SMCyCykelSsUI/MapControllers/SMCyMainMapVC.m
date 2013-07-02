@@ -14,6 +14,8 @@
 #import "SMiBikeCPHMapTileSource.h"
 #import "RMOpenStreetMapSource.h"
 
+#define DEFAULT_LOCATION CLLocationCoordinate2DMake(55.675455,12.566643)
+
 @interface SMCyMainMapVC ()
 
 @end
@@ -38,13 +40,23 @@
     [self.mapView setDelegate:self];
     [self.mapView setMaxZoom:20.0];
     
-    [self.mapView setCenterCoordinate:CLLocationCoordinate2DMake(55.675455,12.566643) animated:NO];
+    [self.mapView setCenterCoordinate:DEFAULT_LOCATION animated:NO];
     self.mapView.userTrackingMode = RMUserTrackingModeFollow;
     self.mapView.triggerUpdateOnHeadingChange = YES;
     self.mapView.displayHeadingCalibration = NO;
     self.mapView.enableBouncing = NO;
     
 	// Do any additional setup after loading the view.
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    self.mapView.delegate = nil;
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+        self.mapView.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning

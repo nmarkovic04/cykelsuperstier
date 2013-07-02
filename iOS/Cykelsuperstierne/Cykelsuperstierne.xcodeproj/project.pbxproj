@@ -22,6 +22,7 @@
 		BC9B1C1A1781416100D2A742 /* Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BC9B1C191781416100D2A742 /* Account.storyboard */; };
 		BC9B1C1D1781450800D2A742 /* SMCyMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = BC9B1C1C1781450800D2A742 /* SMCyMenu.m */; };
 		BC9B1C2017814D8F00D2A742 /* SMCyNoAnimPush.m in Sources */ = {isa = PBXBuildFile; fileRef = BC9B1C1F17814D8F00D2A742 /* SMCyNoAnimPush.m */; };
+		BC9C08AD17829BF200A72E83 /* SMCyTurnInstruction.m in Sources */ = {isa = PBXBuildFile; fileRef = BC9C08AC17829BF200A72E83 /* SMCyTurnInstruction.m */; };
 		BC9DE963177CC5B000D837B6 /* SMCyUser+DelegateNotifications.m in Sources */ = {isa = PBXBuildFile; fileRef = BC9DE962177CC5B000D837B6 /* SMCyUser+DelegateNotifications.m */; };
 		BC9DE969177CD16000D837B6 /* SMCyBusyController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC9DE967177CD16000D837B6 /* SMCyBusyController.m */; };
 		BC9DE96A177CD16000D837B6 /* SMCyBusyController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC9DE968177CD16000D837B6 /* SMCyBusyController.xib */; };
@@ -428,6 +429,8 @@
 		BC9B1C1C1781450800D2A742 /* SMCyMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMCyMenu.m; sourceTree = "<group>"; };
 		BC9B1C1E17814D8F00D2A742 /* SMCyNoAnimPush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMCyNoAnimPush.h; sourceTree = "<group>"; };
 		BC9B1C1F17814D8F00D2A742 /* SMCyNoAnimPush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMCyNoAnimPush.m; sourceTree = "<group>"; };
+		BC9C08AB17829BF200A72E83 /* SMCyTurnInstruction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMCyTurnInstruction.h; sourceTree = "<group>"; };
+		BC9C08AC17829BF200A72E83 /* SMCyTurnInstruction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMCyTurnInstruction.m; sourceTree = "<group>"; };
 		BC9DE961177CC5B000D837B6 /* SMCyUser+DelegateNotifications.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SMCyUser+DelegateNotifications.h"; sourceTree = "<group>"; };
 		BC9DE962177CC5B000D837B6 /* SMCyUser+DelegateNotifications.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SMCyUser+DelegateNotifications.m"; sourceTree = "<group>"; };
 		BC9DE966177CD16000D837B6 /* SMCyBusyController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMCyBusyController.h; sourceTree = "<group>"; };
@@ -1098,6 +1101,8 @@
 				C03E0CC3177B33BF00B3192A /* SMCyTransportationRoute.m */,
 				C03E0CC4177B33BF00B3192A /* SMCyTripRoute.h */,
 				C03E0CC5177B33BF00B3192A /* SMCyTripRoute.m */,
+				BC9C08AB17829BF200A72E83 /* SMCyTurnInstruction.h */,
+				BC9C08AC17829BF200A72E83 /* SMCyTurnInstruction.m */,
 			);
 			path = Routes;
 			sourceTree = "<group>";
@@ -2066,6 +2071,7 @@
 				C067F78717817F9600FB8BAF /* SMCyRouteMapVC.m in Sources */,
 				C0691B2D17819B4D005443C9 /* SMCyRouteSetterVC.m in Sources */,
 				C0691B371781B2E4005443C9 /* SMCySearchAdressCell.m in Sources */,
+				BC9C08AD17829BF200A72E83 /* SMCyTurnInstruction.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

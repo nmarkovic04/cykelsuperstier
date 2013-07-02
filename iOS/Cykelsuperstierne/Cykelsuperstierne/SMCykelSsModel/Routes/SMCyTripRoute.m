@@ -45,7 +45,7 @@
 
 -(void)routeStateChanged:(SMCyRoute *)route{
     BOOL isReady = YES;
-    if(route.state == RS_READY){
+    if(route.state != RS_READY){
         for(SMCyRoute * child in self.routes){
             if(child.state != RS_READY) {
                 isReady = NO;

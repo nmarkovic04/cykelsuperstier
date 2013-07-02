@@ -9,6 +9,8 @@
 #import "SMCyRoute+Protected.h"
 #import "SMrUtil.h"
 
+#define MAX_CONCURENT_ROUTE_THREADS 4
+
 @implementation SMCyRoute (Protected)
 - (void)setState:(eRouteState)state{
     if(state == _state) return;
@@ -17,6 +19,37 @@
 }
 - (void)setError:(SMrError*)error{
     _error = error;
+}
+
+- (void)setName:(NSString*)name{
+    _name = name;
+}
+
+- (void)setStartName:(NSString*)startName{
+    _startName = startName;
+}
+
+- (void)setEndName:(NSString*)endName{
+    _endName = endName;
+}
+
+- (void)setDistance:(NSNumber*)distance{
+    _distance = distance;
+}
+
+- (void)setRidingTime:(NSNumber*)ridingTime{
+    _ridingTime = ridingTime;
+}
+
++(NSOperationQueue*) routeQueue{
+    static NSOperationQueue * sRequestQueue;
+    
+    if(!sRequestQueue){
+        sRequestQueue = [NSOperationQueue new];
+        sRequestQueue.maxConcurrentOperationCount = MAX_CONCURENT_ROUTE_THREADS;
+    }
+    
+    return sRequestQueue;
 }
 @end
 
@@ -38,4 +71,23 @@
     return _error;
 }
 
+- (NSString *)name{
+    return  _name;
+}
+
+-(NSString *)startName{
+    return _startName;
+}
+
+-(NSString *)endName{
+    return _endName;
+}
+
+- (NSNumber *)distance{
+    return _distance;
+}
+
+-(NSNumber *)ridingTime{
+    return _ridingTime;
+}
 @end

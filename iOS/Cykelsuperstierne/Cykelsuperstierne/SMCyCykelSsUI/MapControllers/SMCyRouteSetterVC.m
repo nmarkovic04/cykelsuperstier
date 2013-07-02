@@ -10,6 +10,7 @@
 #import "SMCyAddressFinder.h"
 #import "SMCyLocation.h"
 #import "SMCyTripRoute.h"
+#import "SMCyBusyController.h"
 
 @interface SMCyRouteSetterVC ()
 @property(nonatomic, strong) SMCyTripRoute * route;
@@ -47,10 +48,10 @@
 }
 
 - (IBAction)onStart:(UIButton *)sender {
+    
+    [SMCyBusyController showOnViewController:self];
     [self prepareRoute];
-    if(self.route){
-        [self performSegueWithIdentifier:@"routeSetterToRouteMap" sender:self];
-    }
+
 }
 
 - (IBAction)onBack:(UIButton *)sender {
@@ -87,5 +88,14 @@
 }
 
 #pragma mark - route delegate methods
+
+-(void)routeStateChanged:(SMCyRoute*)route{
+    if(route.state == RS_FAILED_SEARCHING_FOR_ROUTE || route.state == RS_READY){
+        [SMCyBusyController close];
+        if(self.route){
+            [self performSegueWithIdentifier:@"routeSetterToRouteMap" sender:self];
+        }
+    }
+}
 
 @end
