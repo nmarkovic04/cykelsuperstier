@@ -9,8 +9,31 @@
 #import "SMCyRouteMapVC.h"
 #import "SMCyUser.h"
 #import "SMCyTripRoute.h"
-@interface SMCyRouteMapVC ()
+#import <RMAnnotation.h>
+#import <RMMarker.h>
+#import <RMShape.h>
 
+/* *** Map Constants *** */
+#define PATH_OPACITY 0.6
+#define PATH_COLOR [UIColor redColor]
+#define LINE_WIDTH 3.0
+// annotation keys
+#define aKeyMarker @"marker"
+#define aKeyPath @"path"
+#define aKeyLine @"line"
+#define aKeyWaypoints @"waypoints"
+#define aKeyLineColor @"lineColor"
+#define aKeyLineWidth @"lineWidth"
+#define aKeyFillColor @"fillColor"
+#define aKeyLineStart @"lineStart"
+#define aKeyLineEnd   @"lineEnd"
+#define aKeyClosePath @"closePath"
+/* *** ************* *** */
+
+
+
+@interface SMCyRouteMapVC ()
+@property(nonatomic, strong) SMCyTripRoute* currentRoute;
 @end
 
 @implementation SMCyRouteMapVC
@@ -28,24 +51,54 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    // get user current route
+    // TODO: Handle invalid route
+    SMCyRoute* route= [SMCyUser activeUser].activeRoute;
+    self.currentRoute= (SMCyTripRoute*)route;
+    
+    NSLog(@"Start coordinate %lf %lf",self.currentRoute.start.location2DCoord.latitude, self.currentRoute.start.location2DCoord.longitude );
+    NSLog(@"End coordinate %lf %lf",self.currentRoute.end.location2DCoord.latitude, self.currentRoute.end.location2DCoord.longitude );
+    
+    RMAnnotation* startAnnotation= [RMAnnotation annotationWithMapView:self.mapView coordinate:self.currentRoute.start.location2DCoord andTitle:@"A"];
+    startAnnotation.annotationType = aKeyMarker;
+    startAnnotation.annotationIcon = [UIImage imageNamed:@"marker-red"];
+    startAnnotation.anchorPoint = CGPointMake(0.5, 1.0);
+    startAnnotation.enabled= YES;
+    
+    RMAnnotation* endAnnotation= [RMAnnotation annotationWithMapView:self.mapView coordinate:self.currentRoute.end.location2DCoord andTitle:@"B"];
+    endAnnotation.annotationType= aKeyMarker;
+    endAnnotation.annotationIcon= [UIImage imageNamed:@"marker-red"];
+    endAnnotation.anchorPoint= CGPointMake(0.5, 1.0);
+    endAnnotation.enabled= YES;
+    
+    [self.mapView addAnnotation:startAnnotation];
+    [self.mapView addAnnotation:endAnnotation];
+
+    [self displayRoutePath];
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [self.mapView setCenterCoordinate:self.currentRoute.start.location2DCoord];
+    [self.mapView setUserTrackingMode:RMUserTrackingModeNone];
+
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-
-- (IBAction)onBreakRoute:(UIButton *)sender {
+- (IBAction)onBreakRoute:(id)sender {
+    self.currentRoute.delegate= self;
+    BOOL canBreakRoute= [self.currentRoute breakRoute];
+    //TODO: do something with the result, Rasko...
     
-    if([[SMCyUser activeUser].activeRoute isMemberOfClass:[SMCyTripRoute class]]){
-        SMCyTripRoute* tripRoute= (SMCyTripRoute*)[SMCyUser activeUser].activeRoute;
-        
-        BOOL canBreakRoute= [tripRoute breakRoute];
-        
-        //TODO: do something with the result, Rasko...
-    }
 }
 
 - (IBAction)onClose:(UIButton *)sender {
@@ -53,6 +106,49 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (void)displayRoutePath {
+    [self removePathsFromMapView:self.mapView];
+
+    // each route has two waypoints, but the Nth ending is the Nth+1 beginning, so we have n+1 waypoints in total
+    NSMutableArray* pathWaypoints = [NSMutableArray arrayWithCapacity:self.currentRoute.routes.count+1];
+
+    for (int i=0; i<self.currentRoute.routes.count; i++){
+        SMCyRoute * route= [self.currentRoute.routes objectAtIndex:i];
+        if(i==0)
+            [pathWaypoints addObject:route.start];
+
+
+        [pathWaypoints addObject:route.end];
+    }
+    
+    SMCyLocation* loc = nil;
+    if (pathWaypoints && [pathWaypoints count] > 0) {
+        loc = [pathWaypoints objectAtIndex:0];
+    }
+    
+    RMAnnotation *pathAnnotation = [RMAnnotation annotationWithMapView:self.mapView coordinate:loc.location2DCoord andTitle:nil];
+    pathAnnotation.annotationType = aKeyPath;
+    pathAnnotation.userInfo = @{
+                                aKeyWaypoints : [NSArray arrayWithArray:pathWaypoints],
+                                aKeyLineColor : PATH_COLOR,
+                                aKeyFillColor : [UIColor clearColor],
+                                aKeyLineWidth : [NSNumber numberWithFloat:LINE_WIDTH],
+                               };
+    [pathAnnotation setBoundingBoxFromLocations:[pathWaypoints valueForKey:@"location"]];
+    [self.mapView addAnnotation:pathAnnotation];
+}
+
+-(void)removePathsFromMapView:(RMMapView*)mapView{
+    [self removeAnnotationsFromMapView:mapView named:aKeyPath];
+}
+
+-(void)removeAnnotationsFromMapView:(RMMapView*)mapView named:(NSString*)typeName{
+    for (RMAnnotation *annotation in mapView.annotations) {
+        if ([annotation.annotationType isEqualToString:typeName]) {
+            [mapView removeAnnotation:annotation];
+        }
+    }
+}
 #pragma mark - RMMap delegate methods
 
 
@@ -68,6 +164,51 @@
  *   @param annotation The object representing the annotation that is about to be displayed. In addition to your custom annotations, this object could be an RMUserLocation object representing the user’s current location.
  *   @return The annotation layer to display for the specified annotation or `nil` if you do not want to display a layer. */
 - (RMMapLayer *)mapView:(RMMapView *)mapView layerForAnnotation:(RMAnnotation *)annotation{
+    if ([annotation.annotationType isEqualToString:aKeyPath]) {
+        //        RMPath * path = [[RMPath alloc] initWithView:aMapView];
+        RMShape *path = [[RMShape alloc] initWithView:mapView];
+        [path setZPosition:-MAXFLOAT];
+        [path setLineColor:[annotation.userInfo objectForKey:aKeyLineColor]];
+        [path setOpacity:PATH_OPACITY];
+        [path setFillColor:[annotation.userInfo objectForKey:aKeyFillColor]];
+        [path setLineWidth:[[annotation.userInfo objectForKey:aKeyLineWidth] floatValue]];
+        path.scaleLineWidth = NO;
+        
+        if ([[annotation.userInfo objectForKey:aKeyClosePath] boolValue])
+            [path closePath];
+        
+        @synchronized([annotation.userInfo objectForKey:aKeyWaypoints]) {
+            for (SMCyLocation *location in [annotation.userInfo objectForKey:aKeyWaypoints]) {
+                [path addLineToCoordinate:location.location2DCoord];
+            }
+        }
+        
+        return path;
+    }
+    
+    if ([annotation.annotationType isEqualToString:aKeyLine]) {
+        RMShape *line = [[RMShape alloc] initWithView:mapView];
+        [line setZPosition:-MAXFLOAT];
+        [line setLineColor:[annotation.userInfo objectForKey:aKeyLineColor]];
+        [line setOpacity:PATH_OPACITY];
+        [line setFillColor:[annotation.userInfo objectForKey:aKeyFillColor]];
+        [line setLineWidth:[[annotation.userInfo objectForKey:aKeyLineWidth] floatValue]];
+        line.scaleLineWidth = YES;
+        
+        CLLocation *start = [annotation.userInfo objectForKey:aKeyLineStart];
+        [line addLineToCoordinate:start.coordinate];
+        CLLocation *end = [annotation.userInfo objectForKey:aKeyLineEnd];
+        [line addLineToCoordinate:end.coordinate];
+        
+        return line;
+    }
+
+    if ([annotation.annotationType isEqualToString:aKeyMarker]) {
+        RMMarker * rm = [[RMMarker alloc] initWithUIImage:annotation.annotationIcon anchorPoint:annotation.anchorPoint];
+        [rm setZPosition:100];
+        return rm;
+    }
+    
     return nil;
 }
 
@@ -254,7 +395,10 @@
     
 }
 
-#pragma mark -
+#pragma mark - SMCyRouteDelegate
 
+-(void)routeStateChanged:(SMCyRoute*)route{
+    
+}
 
 @end

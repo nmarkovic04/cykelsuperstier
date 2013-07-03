@@ -19,7 +19,7 @@ typedef void(^SMCyAddressSearchCompletion)(SMCyLocation*);
 @property (weak, nonatomic) IBOutlet UITableView *resultsTable;
 @property (strong, nonatomic) SMCyAddressSearchCompletion completionBlock;
 
-
+@property(strong, nonatomic) SMCyLocation* currentLocation;
 - (IBAction)onCancel:(UIButton *)sender;
 
 - (IBAction)onTextChanged:(UITextField *)sender;

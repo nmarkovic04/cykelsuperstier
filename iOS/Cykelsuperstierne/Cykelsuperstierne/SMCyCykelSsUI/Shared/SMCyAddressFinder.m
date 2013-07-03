@@ -34,6 +34,20 @@
     // Do any additional setup after loading the view from its nib.
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    if(self.currentLocation){
+        //temp string userlocation
+        if(![self.currentLocation.name isEqualToString:@"UserLocation"])
+            [self.searchField setText:self.currentLocation.name];
+    }
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    
+    [self.searchField becomeFirstResponder];
+}
 - (SMAutocomplete *)autoComplete{
     if(!_autoComplete){
         _autoComplete = [[SMAutocomplete alloc] initWithDelegate:self];
@@ -158,6 +172,14 @@
     }
     
     [self backCloseAnimated:YES withCompletion:nil];
+}
+
+-(void)setCurrentLocation:(SMCyLocation *)pCurrentLocation{
+    _currentLocation= pCurrentLocation;
+    
+    if(![_currentLocation.name isEqualToString:@"UserLocation"]){
+        [self.searchField setText:_currentLocation.name];
+    }
 }
 
 

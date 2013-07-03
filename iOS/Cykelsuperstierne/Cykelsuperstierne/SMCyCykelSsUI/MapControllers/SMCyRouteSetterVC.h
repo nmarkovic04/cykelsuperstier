@@ -11,13 +11,16 @@
 
 @class SMCyLocation;
 
-@interface SMCyRouteSetterVC : SMCyBaseVC<SMCyRouteDelegate>
+@interface SMCyRouteSetterVC : SMCyBaseVC<SMCyRouteDelegate, UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITextField *topTextField;
 @property (weak, nonatomic) IBOutlet UITextField *bottomTextField;
 
+@property (weak, nonatomic) IBOutlet UITableView *favouriteTableView;
+@property (weak, nonatomic) IBOutlet UITableView *searchHistoryTableView;
+@property (weak, nonatomic) IBOutlet UIScrollView *tableScrollView;
+
 @property (strong, nonatomic) SMCyLocation * startLocation;
 @property (strong, nonatomic) SMCyLocation * endLocation;
-
 
 - (IBAction)topTextFieldTouch:(UIButton *)sender;
 - (IBAction)bottomTextFieldTouch:(UIButton *)sender;

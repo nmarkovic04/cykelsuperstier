@@ -55,7 +55,7 @@
 
 - (NSString *)authenticationToken{
     if(![self isLoggedin]) return nil;
-    return self.fbSession.accessTokenData.accessToken;
+    return self.fbSession.accessToken;
 }
 
 - (NSString *)userId{
@@ -76,7 +76,7 @@
 }
 
 -(BOOL) isLoggedin{
-    return self.fbSession.accessTokenData != nil;
+    return self.fbSession.accessToken != nil;
 }
 -(void) login{
     

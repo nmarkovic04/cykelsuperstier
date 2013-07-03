@@ -9,13 +9,14 @@
 #import "SMAppDelegate.h"
 #include <FacebookSDK/FacebookSDK.h>
 #import "SMCyTransportation.h"
-
+#import "SMLocationManager.h"
 @implementation SMAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
     [SMCyTransportation sharedInstance];
+
     return YES;
 }
 							

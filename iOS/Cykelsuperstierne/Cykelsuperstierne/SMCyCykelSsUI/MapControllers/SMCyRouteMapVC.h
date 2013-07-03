@@ -9,9 +9,11 @@
 #import "SMCyBaseVC.h"
 #import "RMMapView.h"
 #import "SMCyMainMapVC+Animations.h"
+#import "SMCyRoute.h"
 
-@interface SMCyRouteMapVC : SMCyMainMapVC
+@interface SMCyRouteMapVC : SMCyMainMapVC<SMCyRouteDelegate>
 
-- (IBAction)onBreakRoute:(UIButton *)sender;
+
+- (IBAction)onBreakRoute:(id)sender;
 - (IBAction)onClose:(UIButton *)sender;
 @end

@@ -71,7 +71,7 @@
 		C03E0D02177B351600B3192A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C03E0D01177B351600B3192A /* QuartzCore.framework */; };
 		C03E0D04177B351D00B3192A /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C03E0D03177B351D00B3192A /* Social.framework */; };
 		C03E0D06177B352E00B3192A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C03E0D05177B352E00B3192A /* Security.framework */; };
-		C03E0D08177B353400B3192A /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C03E0D07177B353400B3192A /* AdSupport.framework */; };
+		C03E0D08177B353400B3192A /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C03E0D07177B353400B3192A /* AdSupport.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		C03E0D0A177B354100B3192A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C03E0D09177B354100B3192A /* CoreLocation.framework */; };
 		C03E0D0C177B355100B3192A /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C03E0D0B177B355100B3192A /* AddressBook.framework */; };
 		C03E0D0E177B355B00B3192A /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C03E0D0D177B355B00B3192A /* Accounts.framework */; };
@@ -386,6 +386,10 @@
 		C0AE8106177C90D2004C2451 /* SMTurnInstruction.m in Sources */ = {isa = PBXBuildFile; fileRef = C0AE80F6177C90D2004C2451 /* SMTurnInstruction.m */; };
 		C0AE8108177C921D004C2451 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0AE8107177C921D004C2451 /* MapKit.framework */; };
 		C0AE810A177C9244004C2451 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0AE8109177C9244004C2451 /* SystemConfiguration.framework */; };
+		F6974B7517844499002F3BEF /* SMCySearchHistoryEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = F6974B7417844499002F3BEF /* SMCySearchHistoryEntity.m */; };
+		F6974B7817844523002F3BEF /* SMCySearchHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = F6974B7717844523002F3BEF /* SMCySearchHistory.m */; };
+		F6974B7F17845A32002F3BEF /* SMCyFavouritesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6974B7E17845A32002F3BEF /* SMCyFavouritesTableViewController.m */; };
+		F6974B8217845A56002F3BEF /* SMCySearchHistoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6974B8117845A56002F3BEF /* SMCySearchHistoryTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -861,6 +865,15 @@
 		C0AE80F6177C90D2004C2451 /* SMTurnInstruction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMTurnInstruction.m; sourceTree = "<group>"; };
 		C0AE8107177C921D004C2451 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		C0AE8109177C9244004C2451 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		F6974B7317844499002F3BEF /* SMCySearchHistoryEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMCySearchHistoryEntity.h; sourceTree = "<group>"; };
+		F6974B7417844499002F3BEF /* SMCySearchHistoryEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMCySearchHistoryEntity.m; sourceTree = "<group>"; };
+		F6974B7617844523002F3BEF /* SMCySearchHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMCySearchHistory.h; sourceTree = "<group>"; };
+		F6974B7717844523002F3BEF /* SMCySearchHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMCySearchHistory.m; sourceTree = "<group>"; };
+		F6974B7D17845A32002F3BEF /* SMCyFavouritesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMCyFavouritesTableViewController.h; sourceTree = "<group>"; };
+		F6974B7E17845A32002F3BEF /* SMCyFavouritesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMCyFavouritesTableViewController.m; sourceTree = "<group>"; };
+		F6974B8017845A56002F3BEF /* SMCySearchHistoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMCySearchHistoryTableViewController.h; sourceTree = "<group>"; };
+		F6974B8117845A56002F3BEF /* SMCySearchHistoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMCySearchHistoryTableViewController.m; sourceTree = "<group>"; };
+		F6974B8317846AAC002F3BEF /* SMCyRouteDestinationDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SMCyRouteDestinationDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -910,6 +923,7 @@
 		BC8C8E7A17805AF200420705 /* MapControllers */ = {
 			isa = PBXGroup;
 			children = (
+				F6974B7917845971002F3BEF /* RouteTableControllers */,
 				BC8C8E7C17805B3D00420705 /* SMCyMainMapVC.h */,
 				BC8C8E7D17805B3D00420705 /* SMCyMainMapVC.m */,
 				BC1AB6C01780AD510067CC13 /* SMCyMainMapVC+Animations.h */,
@@ -1047,6 +1061,7 @@
 		C03E0CA8177B33BF00B3192A /* SMCykelSsModel */ = {
 			isa = PBXGroup;
 			children = (
+				F6974B7217844414002F3BEF /* Search */,
 				C03E0CA9177B33BF00B3192A /* Accounts */,
 				C03E0CB2177B33BF00B3192A /* API */,
 				C03E0CB6177B33BF00B3192A /* Location */,
@@ -1648,6 +1663,29 @@
 			path = Reachability;
 			sourceTree = "<group>";
 		};
+		F6974B7217844414002F3BEF /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				F6974B7317844499002F3BEF /* SMCySearchHistoryEntity.h */,
+				F6974B7417844499002F3BEF /* SMCySearchHistoryEntity.m */,
+				F6974B7617844523002F3BEF /* SMCySearchHistory.h */,
+				F6974B7717844523002F3BEF /* SMCySearchHistory.m */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		F6974B7917845971002F3BEF /* RouteTableControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F6974B7D17845A32002F3BEF /* SMCyFavouritesTableViewController.h */,
+				F6974B7E17845A32002F3BEF /* SMCyFavouritesTableViewController.m */,
+				F6974B8017845A56002F3BEF /* SMCySearchHistoryTableViewController.h */,
+				F6974B8117845A56002F3BEF /* SMCySearchHistoryTableViewController.m */,
+				F6974B8317846AAC002F3BEF /* SMCyRouteDestinationDelegate.h */,
+			);
+			path = RouteTableControllers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2092,6 +2130,10 @@
 				BC9C08AD17829BF200A72E83 /* SMCyTurnInstruction.m in Sources */,
 				BC9C08B01782AD3D00A72E83 /* SMCyTransportation.m in Sources */,
 				C08723EB1782ED3600A8CBA2 /* SMCyBrokenRouteInfo.m in Sources */,
+				F6974B7517844499002F3BEF /* SMCySearchHistoryEntity.m in Sources */,
+				F6974B7817844523002F3BEF /* SMCySearchHistory.m in Sources */,
+				F6974B7F17845A32002F3BEF /* SMCyFavouritesTableViewController.m in Sources */,
+				F6974B8217845A56002F3BEF /* SMCySearchHistoryTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

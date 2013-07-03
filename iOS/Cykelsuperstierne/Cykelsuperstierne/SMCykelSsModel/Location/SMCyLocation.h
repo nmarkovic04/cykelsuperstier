@@ -32,6 +32,7 @@
 -(id)initWithDictionary:(NSDictionary*)data;
 
 -(void) setupWithDictionary:(NSDictionary*)data;
+
 -(NSDictionary*)getDataDictionary;
 
 @end

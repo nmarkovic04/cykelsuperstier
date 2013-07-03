@@ -63,6 +63,7 @@
     searchingOperation.completionBlock= ^{
         //todo Change state
         selfRef.state= RS_READY;
+        [selfRef.delegate routeStateChanged:selfRef];
     };
     
     [[SMCyRoute routeQueue] addOperation:searchingOperation];
@@ -134,7 +135,7 @@
     }
     
     self.brokenRoutes= [NSArray arrayWithArray:brokenRoutesTemp];
-    
+
 }
 
 #pragma mark child notifications
