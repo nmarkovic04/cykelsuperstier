@@ -19,6 +19,8 @@
     NSBlockOperation* searchingOperation;
 }
 
+@synthesize routes= _routes;
+
 -(BOOL)isIsValid{
     return (self.routes && self.routes.count > 0);
 }
@@ -29,6 +31,7 @@
     if(self){
         self.delegate = delegate;
         [self setStart:start andEnd:end];
+
     }
     SMCyTransportation * temp = [SMCyTransportation sharedInstance];
     return self;
@@ -135,7 +138,66 @@
     }
     
     self.brokenRoutes= [NSArray arrayWithArray:brokenRoutesTemp];
+    
+    NSArray* trArray= [self transportationRoutesFromBrokenRoutes:self.brokenRoutes];
+    if(trArray && trArray.count>0){
+        if([self splitWithTransportationRoute:[trArray objectAtIndex:0]]){
+            NSLog(@"Route successfully splitted");
+        }
+    }
 
+    
+}
+
+-(BOOL)splitWithTransportationRoute:(SMCyTransportationRoute*)transportationRoute{
+    if(self.routes.count!=1)
+        return NO;
+    
+    SMCyBikeRoute* firstBikeRoute= [self.routes objectAtIndex:0];
+    SMCyLocation* routeFinalEnding= firstBikeRoute.end;
+    [firstBikeRoute setStart:firstBikeRoute.start andEnd:transportationRoute.start];
+    
+    SMCyBikeRoute* finalBikeRoute= [[SMCyBikeRoute alloc] initWithStart:transportationRoute.end end:routeFinalEnding andDelegate:self];
+    self.internalRoutes= [NSMutableArray new];
+    [self.internalRoutes addObject:firstBikeRoute];
+    [self.internalRoutes addObject:transportationRoute];
+    [self.internalRoutes addObject:finalBikeRoute];
+//    _routes = [NSArray arrayWithObjects:, transportationRoute, finalBikeRoute, nil];
+    
+    return YES;
+}
+
+-(NSArray*)transportationRoutesFromBrokenRoutes:(NSArray*)brokenRoutes{
+    return [self transportationRoutesFromBrokenRoutes:brokenRoutes limit:INT_MAX];
+}
+
+-(NSArray*)transportationRoutesFromBrokenRoutes:(NSArray*)brokenRoutes limit:(int)limit{
+    if(!brokenRoutes || brokenRoutes.count==0)
+        return nil;
+    
+    SMCyBrokenRouteInfo* routeInfo= [brokenRoutes objectAtIndex:0];
+
+    if(routeInfo.startingStationsSorted.count==0 || routeInfo.endingStationsSorted.count==0)
+        return nil;
+    
+    SMCyLocation* closestStartingLocation= [routeInfo.startingStationsSorted objectAtIndex:0];
+    SMCyLocation* closestEndingLocation= [routeInfo.endingStationsSorted objectAtIndex:0];
+    
+    SMCyTransportationRoute* transportationRoute= [[SMCyTransportationRoute alloc] initWithStart:closestStartingLocation end:closestEndingLocation];
+    
+    return [NSArray arrayWithObject:transportationRoute];
+//    for(int i=0; i<MIN(limit, brokenRoutes.count); i++){
+//        SMCyBrokenRouteInfo* routeInfo= [brokenRoutes objectAtIndex:i];
+//
+//        for(int j=0; j<routeInfo.startingStationsSorted.count; j++){
+//            
+//            for(int k=0; k<routeInfo.endingStationsSorted.count; k++){
+//                
+//            }
+//            
+//        }
+//        
+//    }
 }
 
 #pragma mark child notifications
@@ -166,4 +228,5 @@
     
     return nil;
 }
+
 @end

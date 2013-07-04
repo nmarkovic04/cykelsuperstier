@@ -1,19 +1,18 @@
 //
-//  SMCySearchHistoryTableViewController.m
+//  SMCyBreakRouteVC.m
 //  Cykelsuperstierne
 //
-//  Created by Nikola Markovic on 7/3/13.
+//  Created by Nikola Markovic on 7/4/13.
 //  Copyright (c) 2013 Rasko Gojkovic. All rights reserved.
 //
 
-#import "SMCySearchHistoryTableViewController.h"
-#import "SMCySearchHistoryEntity.h"
-#import "SMCySearchHistory.h"
-@interface SMCySearchHistoryTableViewController ()
+#import "SMCyBreakRouteVC.h"
+#import "SMCyUser.h"
+@interface SMCyBreakRouteVC ()
 
 @end
 
-@implementation SMCySearchHistoryTableViewController
+@implementation SMCyBreakRouteVC
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -28,11 +27,7 @@
 {
     [super viewDidLoad];
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.route= (SMCyTripRoute*) [SMCyUser activeUser].activeRoute;
 }
 
 - (void)didReceiveMemoryWarning
@@ -41,20 +36,7 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)setup{
-    self.tableView.scrollEnabled= NO;
-    self.tableView.delegate= self;
-    self.tableView.dataSource= self;
-    [self.tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
-    
-    self.entities= [SMCySearchHistory instance].entities;
-}
-
 #pragma mark - Table view data source
-
--(NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-    return @"SENESTE";
-}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -65,22 +47,14 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return self.entities.count;
+    return self.route.routes.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    if(!cell){
-        cell= [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
-    
-    SMCySearchHistoryEntity* entity= [self.entities objectAtIndex:indexPath.row];
-    
-    cell.textLabel.text= entity.location.name;
-
     // Configure the cell...
     
     return cell;
@@ -129,11 +103,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if(self.destinationDelegate){
-        SMCySearchHistoryEntity* entity= [self.entities objectAtIndex:indexPath.row];
-        [self.destinationDelegate didSelectDestinationWithLocation:entity.location];
-    }
+    // Navigation logic may go here. Create and push another view controller.
+    /*
+     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
+     // ...
+     // Pass the selected object to the new view controller.
+     [self.navigationController pushViewController:detailViewController animated:YES];
+     */
 }
 
 @end

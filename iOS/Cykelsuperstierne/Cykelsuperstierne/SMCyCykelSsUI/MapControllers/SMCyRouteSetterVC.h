@@ -8,10 +8,10 @@
 
 #import "SMCyBaseVC.h"
 #import "SMCyTripRoute.h"
-
+#import "SMCyRouteDestinationDelegate.h"
 @class SMCyLocation;
 
-@interface SMCyRouteSetterVC : SMCyBaseVC<SMCyRouteDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface SMCyRouteSetterVC : SMCyBaseVC<SMCyRouteDelegate, SMCyRouteDestinationDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *topTextField;
 @property (weak, nonatomic) IBOutlet UITextField *bottomTextField;
 

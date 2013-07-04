@@ -10,7 +10,9 @@
 #import "SMCyBikeRoute.h"
 #import "SMCyTransportationRoute.h"
 
-@interface SMCyTripRoute : SMCyRoute<SMCyRouteDelegate>
+@interface SMCyTripRoute : SMCyRoute<SMCyRouteDelegate>{
+ 
+}
 
 @property(nonatomic, readonly) BOOL isValid;
 @property(nonatomic, strong, readonly) NSArray * routes;

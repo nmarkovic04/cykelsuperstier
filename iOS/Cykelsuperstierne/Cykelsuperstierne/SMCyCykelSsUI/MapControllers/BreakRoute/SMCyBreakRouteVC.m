@@ -1,38 +1,26 @@
 //
-//  SMCySearchHistoryTableViewController.m
+//  SMCyBreakRouteVC.m
 //  Cykelsuperstierne
 //
-//  Created by Nikola Markovic on 7/3/13.
+//  Created by Nikola Markovic on 7/4/13.
 //  Copyright (c) 2013 Rasko Gojkovic. All rights reserved.
 //
 
-#import "SMCySearchHistoryTableViewController.h"
-#import "SMCySearchHistoryEntity.h"
-#import "SMCySearchHistory.h"
-@interface SMCySearchHistoryTableViewController ()
+#import "SMCyBreakRouteVC.h"
+#import "SMCyUser.h"
+#import "SMCyBikeWaypointCell.h"
+@interface SMCyBreakRouteVC ()
 
 @end
 
-@implementation SMCySearchHistoryTableViewController
-
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
+@implementation SMCyBreakRouteVC
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.tripRoute= (SMCyTripRoute*)[SMCyUser activeUser].activeRoute;
+    [self.tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -41,47 +29,27 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)setup{
-    self.tableView.scrollEnabled= NO;
-    self.tableView.delegate= self;
-    self.tableView.dataSource= self;
-    [self.tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
-    
-    self.entities= [SMCySearchHistory instance].entities;
-}
-
 #pragma mark - Table view data source
-
--(NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-    return @"SENESTE";
-}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
-    return self.entities.count;
+    return self.tripRoute.routes.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
-    if(!cell){
-        cell= [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    static NSString *WaypointCellIdentifier = @"WaypointCell";
+    SMCyBikeWaypointCell *cell = [tableView dequeueReusableCellWithIdentifier:WaypointCellIdentifier];
+    if (cell == nil) {
+        cell = [[SMCyBikeWaypointCell alloc] init];
     }
     
-    SMCySearchHistoryEntity* entity= [self.entities objectAtIndex:indexPath.row];
-    
-    cell.textLabel.text= entity.location.name;
-
-    // Configure the cell...
+//    cell.labelDistance.text= @"Distance 2 km."; 
     
     return cell;
 }
@@ -129,11 +97,26 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if(self.destinationDelegate){
-        SMCySearchHistoryEntity* entity= [self.entities objectAtIndex:indexPath.row];
-        [self.destinationDelegate didSelectDestinationWithLocation:entity.location];
-    }
+    // Navigation logic may go here. Create and push another view controller.
+    /*
+     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
+     // ...
+     // Pass the selected object to the new view controller.
+     [self.navigationController pushViewController:detailViewController animated:YES];
+     */
 }
 
+- (IBAction)onBreakRoute:(id)sender {
+}
+
+-(void)routeStateChanged:(SMCyRoute*)route{
+    NSLog(@"Did break route");
+}
+
+- (void)viewDidUnload {
+    [self setTableView:nil];
+    [self setButtonBreakRoute:nil];
+    [self setLabelHeader:nil];
+    [super viewDidUnload];
+}
 @end

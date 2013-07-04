@@ -9,5 +9,5 @@
 #import "SMCyRoute.h"
 
 @interface SMCyTransportationRoute : SMCyRoute
-
+-(id) initWithStart:(SMCyLocation*)closestStartingLocation end:(SMCyLocation*)closestEndingLocation;
 @end

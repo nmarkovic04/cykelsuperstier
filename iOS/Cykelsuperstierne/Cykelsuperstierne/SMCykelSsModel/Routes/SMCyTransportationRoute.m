@@ -10,4 +10,9 @@
 
 @implementation SMCyTransportationRoute
 
+-(id) initWithStart:(SMCyLocation*)closestStartingLocation end:(SMCyLocation*)closestEndingLocation{
+    if(self= [super init]){}
+    return self;
+}
+
 @end

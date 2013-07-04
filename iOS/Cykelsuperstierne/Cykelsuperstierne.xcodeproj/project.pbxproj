@@ -386,6 +386,9 @@
 		C0AE8106177C90D2004C2451 /* SMTurnInstruction.m in Sources */ = {isa = PBXBuildFile; fileRef = C0AE80F6177C90D2004C2451 /* SMTurnInstruction.m */; };
 		C0AE8108177C921D004C2451 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0AE8107177C921D004C2451 /* MapKit.framework */; };
 		C0AE810A177C9244004C2451 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0AE8109177C9244004C2451 /* SystemConfiguration.framework */; };
+		F6957CCA178571EF001F2F1D /* SMCyBikeWaypointCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6957CC9178571EF001F2F1D /* SMCyBikeWaypointCell.m */; };
+		F6957CCE17857334001F2F1D /* SMCyBreakRouteVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6957CCC17857334001F2F1D /* SMCyBreakRouteVC.m */; };
+		F6957CD11785A47B001F2F1D /* SMCyBikeWaypointCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6957CD01785A47B001F2F1D /* SMCyBikeWaypointCell.xib */; };
 		F6974B7517844499002F3BEF /* SMCySearchHistoryEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = F6974B7417844499002F3BEF /* SMCySearchHistoryEntity.m */; };
 		F6974B7817844523002F3BEF /* SMCySearchHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = F6974B7717844523002F3BEF /* SMCySearchHistory.m */; };
 		F6974B7F17845A32002F3BEF /* SMCyFavouritesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6974B7E17845A32002F3BEF /* SMCyFavouritesTableViewController.m */; };
@@ -865,6 +868,11 @@
 		C0AE80F6177C90D2004C2451 /* SMTurnInstruction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMTurnInstruction.m; sourceTree = "<group>"; };
 		C0AE8107177C921D004C2451 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		C0AE8109177C9244004C2451 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		F6957CC8178571EF001F2F1D /* SMCyBikeWaypointCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMCyBikeWaypointCell.h; sourceTree = "<group>"; };
+		F6957CC9178571EF001F2F1D /* SMCyBikeWaypointCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMCyBikeWaypointCell.m; sourceTree = "<group>"; };
+		F6957CCB17857334001F2F1D /* SMCyBreakRouteVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMCyBreakRouteVC.h; sourceTree = "<group>"; };
+		F6957CCC17857334001F2F1D /* SMCyBreakRouteVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMCyBreakRouteVC.m; sourceTree = "<group>"; };
+		F6957CD01785A47B001F2F1D /* SMCyBikeWaypointCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SMCyBikeWaypointCell.xib; sourceTree = "<group>"; };
 		F6974B7317844499002F3BEF /* SMCySearchHistoryEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMCySearchHistoryEntity.h; sourceTree = "<group>"; };
 		F6974B7417844499002F3BEF /* SMCySearchHistoryEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMCySearchHistoryEntity.m; sourceTree = "<group>"; };
 		F6974B7617844523002F3BEF /* SMCySearchHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMCySearchHistory.h; sourceTree = "<group>"; };
@@ -923,6 +931,7 @@
 		BC8C8E7A17805AF200420705 /* MapControllers */ = {
 			isa = PBXGroup;
 			children = (
+				F6957CC717857138001F2F1D /* BreakRoute */,
 				F6974B7917845971002F3BEF /* RouteTableControllers */,
 				BC8C8E7C17805B3D00420705 /* SMCyMainMapVC.h */,
 				BC8C8E7D17805B3D00420705 /* SMCyMainMapVC.m */,
@@ -1663,6 +1672,18 @@
 			path = Reachability;
 			sourceTree = "<group>";
 		};
+		F6957CC717857138001F2F1D /* BreakRoute */ = {
+			isa = PBXGroup;
+			children = (
+				F6957CC8178571EF001F2F1D /* SMCyBikeWaypointCell.h */,
+				F6957CC9178571EF001F2F1D /* SMCyBikeWaypointCell.m */,
+				F6957CCB17857334001F2F1D /* SMCyBreakRouteVC.h */,
+				F6957CCC17857334001F2F1D /* SMCyBreakRouteVC.m */,
+				F6957CD01785A47B001F2F1D /* SMCyBikeWaypointCell.xib */,
+			);
+			path = BreakRoute;
+			sourceTree = "<group>";
+		};
 		F6974B7217844414002F3BEF /* Search */ = {
 			isa = PBXGroup;
 			children = (
@@ -2052,6 +2073,7 @@
 				C0691B341781B231005443C9 /* SMCySearchAdressCell.xib in Resources */,
 				BC9C08B31782AFEB00A72E83 /* Albertslundruten.line in Resources */,
 				BC9C08B41782AFEB00A72E83 /* Farumruten.line in Resources */,
+				F6957CD11785A47B001F2F1D /* SMCyBikeWaypointCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2134,6 +2156,8 @@
 				F6974B7817844523002F3BEF /* SMCySearchHistory.m in Sources */,
 				F6974B7F17845A32002F3BEF /* SMCyFavouritesTableViewController.m in Sources */,
 				F6974B8217845A56002F3BEF /* SMCySearchHistoryTableViewController.m in Sources */,
+				F6957CCA178571EF001F2F1D /* SMCyBikeWaypointCell.m in Sources */,
+				F6957CCE17857334001F2F1D /* SMCyBreakRouteVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -18,6 +18,7 @@
 #import "SMCySearchHistory.h"
 
 #define BOTTOM_MARGIN 15
+
 @interface SMCyRouteSetterVC ()
 
 @property(nonatomic, strong) SMCyTripRoute * route;
@@ -43,10 +44,12 @@
     
     self.historyVC= [[SMCySearchHistoryTableViewController alloc] init];
     self.historyVC.tableView= self.searchHistoryTableView;
+    self.historyVC.destinationDelegate= self;
     [self.historyVC setup];
 
     self.favoritesVC= [[SMCyFavouritesTableViewController alloc] init];
     self.favoritesVC.tableView= self.favouriteTableView;
+    self.favoritesVC.destinationDelegate= self;
     [self.favoritesVC setup];
     
     [self.favouriteTableView reloadData];
@@ -94,7 +97,6 @@
     
     [SMCyBusyController showOnViewController:self];
     [self prepareRoute];
-
 }
 
 - (IBAction)onBack:(UIButton *)sender {
@@ -128,13 +130,12 @@
                 self.topTextField.text = location.name;
                 self.startLocation = location;
             } else {
+
                 self.bottomTextField.text = location.name;
                 self.endLocation = location;
                 
                 [[SMCySearchHistory instance] addSearchEntityWithLocation:location];
-                
                 [self reloadTables];
-                
                 
             }
         }
@@ -151,6 +152,12 @@
     self.tableScrollView.contentSize= CGSizeMake(self.tableScrollView.frame.size.width, self.searchHistoryTableView.frame.origin.y+self.searchHistoryTableView.frame.size.height+BOTTOM_MARGIN);
 }
 
+- (void)viewDidUnload {
+    [self setFavouriteTableView:nil];
+    [self setSearchHistoryTableView:nil];
+    [self setTableScrollView:nil];
+    [super viewDidUnload];
+}
 
 #pragma mark - route delegate methods
 
@@ -164,11 +171,9 @@
     }
 }
 
-- (void)viewDidUnload {
-    [self setFavouriteTableView:nil];
-    [self setSearchHistoryTableView:nil];
-    [self setTableScrollView:nil];
-    [super viewDidUnload];
+-(void)didSelectDestinationWithLocation:(SMCyLocation*)location{
+    self.endLocation= location;
+    self.bottomTextField.text= location.name;
 }
 
 @end

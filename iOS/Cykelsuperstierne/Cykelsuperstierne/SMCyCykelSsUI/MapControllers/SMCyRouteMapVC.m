@@ -12,11 +12,11 @@
 #import <RMAnnotation.h>
 #import <RMMarker.h>
 #import <RMShape.h>
-
+#import "SMCyBreakRouteVC.h"
 /* *** Map Constants *** */
-#define PATH_OPACITY 0.6
-#define PATH_COLOR [UIColor redColor]
-#define LINE_WIDTH 3.0
+#define PATH_OPACITY 0.8
+#define PATH_COLOR [UIColor orangeColor]
+#define LINE_WIDTH 10.0
 // annotation keys
 #define aKeyMarker @"marker"
 #define aKeyPath @"path"
@@ -94,15 +94,19 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    NSLog(@"pushing %@", NSStringFromClass([segue.destinationViewController class]));
+}
+
 - (IBAction)onBreakRoute:(id)sender {
     self.currentRoute.delegate= self;
+
     BOOL canBreakRoute= [self.currentRoute breakRoute];
     //TODO: do something with the result, Rasko...
-    
+
 }
 
 - (IBAction)onClose:(UIButton *)sender {
-#warning unfinished method
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -110,13 +114,17 @@
     [self removePathsFromMapView:self.mapView];
 
     // each route has two waypoints, but the Nth ending is the Nth+1 beginning, so we have n+1 waypoints in total
-    NSMutableArray* pathWaypoints = [NSMutableArray arrayWithCapacity:self.currentRoute.routes.count+1];
+    NSMutableArray* pathWaypoints = [NSMutableArray new];
 
     for (int i=0; i<self.currentRoute.routes.count; i++){
-        SMCyRoute * route= [self.currentRoute.routes objectAtIndex:i];
-        if(i==0)
-            [pathWaypoints addObject:route.start];
+        SMCyBikeRoute * route= [self.currentRoute.routes objectAtIndex:i];
+        
+        for( int j=0; j<route.waypoints.count; j++){
+            if(j==0 && i!=0)
+                continue;
 
+            [pathWaypoints addObject:[route.waypoints objectAtIndex:j]];
+        }
 
         [pathWaypoints addObject:route.end];
     }
@@ -398,7 +406,8 @@
 #pragma mark - SMCyRouteDelegate
 
 -(void)routeStateChanged:(SMCyRoute*)route{
-    
+    if(route.state == RS_READY)
+        [self performSegueWithIdentifier:@"routeMapToBreakRoute" sender:self];
 }
 
 @end
