@@ -49,7 +49,7 @@
         cell = [[SMCyBikeWaypointCell alloc] init];
     }
     
-//    cell.labelDistance.text= @"Distance 2 km."; 
+    cell.labelDistance.text= @"Distance 2 km."; 
     
     return cell;
 }
